@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>EFC GYM — Management Dashboard</title>
+<title>EFC GYM — Dashboard</title>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <script>((e,t)=>{"object"==typeof exports&&"undefined"!=typeof module?module.exports=t():"function"==typeof define&&define.amd?define(t):(e="undefined"!=typeof globalThis?globalThis:e||self).firebase=t()})(this,function(){let F=()=>{},r=function(t){var r=[];let n=0;for(let a=0;a<t.length;a++){let e=t.charCodeAt(a);e<128?r[n++]=e:(e<2048?r[n++]=e>>6|192:(55296==(64512&e)&&a+1<t.length&&56320==(64512&t.charCodeAt(a+1))?(e=65536+((1023&e)<<10)+(1023&t.charCodeAt(++a)),r[n++]=e>>18|240,r[n++]=e>>12&63|128):r[n++]=e>>12|224,r[n++]=e>>6&63|128),r[n++]=63&e|128)}return r},M={byteToCharMap_:null,charToByteMap_:null,byteToCharMapWebSafe_:null,charToByteMapWebSafe_:null,ENCODED_VALS_BASE:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789",get ENCODED_VALS(){return this.ENCODED_VALS_BASE+"+/="},get ENCODED_VALS_WEBSAFE(){return this.ENCODED_VALS_BASE+"-_."},HAS_NATIVE_SUPPORT:"function"==typeof atob,encodeByteArray(r,e){if(!Array.isArray(r))throw Error("encodeByteArray takes an array as a parameter");this.init_();var n=e?this.byteToCharMapWebSafe_:this.byteToCharMap_,a=[];for(let h=0;h<r.length;h+=3){var i=r[h],s=h+1<r.length,o=s?r[h+1]:0,c=h+2<r.length,l=c?r[h+2]:0;let e=(15&o)<<2|l>>6,t=63&l;c||(t=64,s)||(e=64),a.push(n[i>>2],n[(3&i)<<4|o>>4],n[e],n[t])}return a.join("")},encodeString(e,t){return this.HAS_NATIVE_SUPPORT&&!t?btoa(e):this.encodeByteArray(r(e),t)},decodeString(r,n){if(this.HAS_NATIVE_SUPPORT&&!n)return atob(r);{var a=this.decodeStringToByteArray(r,n);var i=[];let e=0,t=0;for(;e<a.length;){var s,o,c,l=a[e++];l<128?i[t++]=String.fromCharCode(l):191<l&&l<224?(s=a[e++],i[t++]=String.fromCharCode((31&l)<<6|63&s)):239<l&&l<365?(s=((7&l)<<18|(63&a[e++])<<12|(63&a[e++])<<6|63&a[e++])-65536,i[t++]=String.fromCharCode(55296+(s>>10)),i[t++]=String.fromCharCode(56320+(1023&s))):(o=a[e++],c=a[e++],i[t++]=String.fromCharCode((15&l)<<12|(63&o)<<6|63&c))}return i.join("");return}},decodeStringToByteArray(e,t){this.init_();var r=t?this.charToByteMapWebSafe_:this.charToByteMap_,n=[];for(let c=0;c<e.length;){var a=r[e.charAt(c++)],i=c<e.length?r[e.charAt(c)]:0,s=++c<e.length?r[e.charAt(c)]:64,o=++c<e.length?r[e.charAt(c)]:64;if(++c,null==a||null==i||null==s||null==o)throw new z;n.push(a<<2|i>>4),64!==s&&(n.push(i<<4&240|s>>2),64!==o)&&n.push(s<<6&192|o)}return n},init_(){if(!this.byteToCharMap_){this.byteToCharMap_={},this.charToByteMap_={},this.byteToCharMapWebSafe_={},this.charToByteMapWebSafe_={};for(let e=0;e<this.ENCODED_VALS.length;e++)this.byteToCharMap_[e]=this.ENCODED_VALS.charAt(e),this.charToByteMap_[this.byteToCharMap_[e]]=e,this.byteToCharMapWebSafe_[e]=this.ENCODED_VALS_WEBSAFE.charAt(e),(this.charToByteMapWebSafe_[this.byteToCharMapWebSafe_[e]]=e)>=this.ENCODED_VALS_BASE.length&&(this.charToByteMap_[this.ENCODED_VALS_WEBSAFE.charAt(e)]=e,this.charToByteMapWebSafe_[this.ENCODED_VALS.charAt(e)]=e)}}};class z extends Error{constructor(){super(...arguments),this.name="DecodeBase64StringError"}}function x(e){var t=r(e);return M.encodeByteArray(t,!0)}let H=function(e){return x(e).replace(/\./g,"")},j=function(e){try{return M.decodeString(e,!0)}catch(e){console.error("base64Decode failed: ",e)}return null};function c(e,t){if(!(t instanceof Object))return t;switch(t.constructor){case Date:return new Date(t.getTime());case Object:void 0===e&&(e={});break;case Array:e=[];break;default:return t}for(var r in t)t.hasOwnProperty(r)&&"__proto__"!==r&&(e[r]=c(e[r],t[r]));return e}function V(){if("undefined"!=typeof self)return self;if("undefined"!=typeof window)return window;if("undefined"!=typeof global)return global;throw new Error("Unable to locate global object.")}let $=()=>V().__FIREBASE_DEFAULTS__,W=()=>{var e;return"undefined"!=typeof process&&void 0!==process.env&&(e=process.env.__FIREBASE_DEFAULTS__)?JSON.parse(e):void 0},U=()=>{if("undefined"!=typeof document){let e;try{e=document.cookie.match(/__FIREBASE_DEFAULTS__=([^;]+)/)}catch(e){return}var t=e&&j(e[1]);return t&&JSON.parse(t)}},J=()=>{try{return F()||$()||W()||U()}catch(e){console.info("Unable to get __FIREBASE_DEFAULTS__ due to: "+e)}},l=()=>J()?.config;class G{constructor(){this.reject=()=>{},this.resolve=()=>{},this.promise=new Promise((e,t)=>{this.resolve=e,this.reject=t})}wrapCallback(r){return(e,t)=>{e?this.reject(e):this.resolve(t),"function"==typeof r&&(this.promise.catch(()=>{}),1===r.length?r(e):r(e,t))}}}function K(){return"undefined"!=typeof WorkerGlobalScope&&"undefined"!=typeof self&&self instanceof WorkerGlobalScope}class s extends Error{constructor(e,t,r){super(t),this.code=e,this.customData=r,this.name="FirebaseError",Object.setPrototypeOf(this,s.prototype),Error.captureStackTrace&&Error.captureStackTrace(this,n.prototype.create)}}class n{constructor(e,t,r){this.service=e,this.serviceName=t,this.errors=r}create(e,...t){var n,r=t[0]||{},a=this.service+"/"+e,i=this.errors[e],i=i?(n=r,i.replace(Y,(e,t)=>{var r=n[t];return null!=r?String(r):`<${t}?>`})):"Error",i=this.serviceName+`: ${i} (${a}).`;return new s(a,i,r)}}let Y=/\{\$([^}]+)}/g;function X(e,t){return Object.prototype.hasOwnProperty.call(e,t)}function h(e,t){if(e!==t){var r,n,a=Object.keys(e),i=Object.keys(t);for(r of a){if(!i.includes(r))return;var s=e[r],o=t[r];if(q(s)&&q(o)){if(!h(s,o))return}else if(s!==o)return}for(n of i)if(!a.includes(n))return}return 1}function q(e){return null!==e&&"object"==typeof e}function Z(e,t){var r=new Q(e,t);return r.subscribe.bind(r)}class Q{constructor(e,t){this.observers=[],this.unsubscribes=[],this.observerCount=0,this.task=Promise.resolve(),this.finalized=!1,this.onNoObservers=t,this.task.then(()=>{e(this)}).catch(e=>{this.error(e)})}next(t){this.forEachObserver(e=>{e.next(t)})}error(t){this.forEachObserver(e=>{e.error(t)}),this.close(t)}complete(){this.forEachObserver(e=>{e.complete()}),this.close()}subscribe(e,t,r){let n;if(void 0===e&&void 0===t&&void 0===r)throw new Error("Missing Observer.");void 0===(n=((e,t)=>{if("object"==typeof e&&null!==e)for(var r of t)if(r in e&&"function"==typeof e[r])return 1})(e,["next","error","complete"])?e:{next:e,error:t,complete:r}).next&&(n.next=i),void 0===n.error&&(n.error=i),void 0===n.complete&&(n.complete=i);var a=this.unsubscribeOne.bind(this,this.observers.length);return this.finalized&&this.task.then(()=>{try{this.finalError?n.error(this.finalError):n.complete()}catch(e){}}),this.observers.push(n),a}unsubscribeOne(e){void 0!==this.observers&&void 0!==this.observers[e]&&(delete this.observers[e],--this.observerCount,0===this.observerCount)&&void 0!==this.onNoObservers&&this.onNoObservers(this)}forEachObserver(t){if(!this.finalized)for(let e=0;e<this.observers.length;e++)this.sendOne(e,t)}sendOne(e,t){this.task.then(()=>{if(void 0!==this.observers&&void 0!==this.observers[e])try{t(this.observers[e])}catch(e){"undefined"!=typeof console&&console.error&&console.error(e)}})}close(e){this.finalized||(this.finalized=!0,void 0!==e&&(this.finalError=e),this.task.then(()=>{this.observers=void 0,this.onNoObservers=void 0}))}}function i(){}class o{constructor(e,t,r){this.name=e,this.instanceFactory=t,this.type=r,this.multipleInstances=!1,this.serviceProps={},this.instantiationMode="LAZY",this.onInstanceCreated=null}setInstantiationMode(e){return this.instantiationMode=e,this}setMultipleInstances(e){return this.multipleInstances=e,this}setServiceProps(e){return this.serviceProps=e,this}setInstanceCreatedCallback(e){return this.onInstanceCreated=e,this}}let a="[DEFAULT]";class ee{constructor(e,t){this.name=e,this.container=t,this.component=null,this.instances=new Map,this.instancesDeferred=new Map,this.instancesOptions=new Map,this.onInitCallbacks=new Map}get(e){var t=this.normalizeInstanceIdentifier(e);if(!this.instancesDeferred.has(t)){var r=new G;if(this.instancesDeferred.set(t,r),this.isInitialized(t)||this.shouldAutoInitialize())try{var n=this.getOrInitializeService({instanceIdentifier:t});n&&r.resolve(n)}catch(e){}}return this.instancesDeferred.get(t).promise}getImmediate(e){var t=this.normalizeInstanceIdentifier(e?.identifier),r=e?.optional??!1;if(!this.isInitialized(t)&&!this.shouldAutoInitialize()){if(r)return null;throw Error(`Service ${this.name} is not available`)}try{return this.getOrInitializeService({instanceIdentifier:t})}catch(e){if(r)return null;throw e}}getComponent(){return this.component}setComponent(e){if(e.name!==this.name)throw Error(`Mismatching Component ${e.name} for Provider ${this.name}.`);if(this.component)throw Error(`Component for ${this.name} has already been provided`);if(this.component=e,this.shouldAutoInitialize()){if("EAGER"===e.instantiationMode)try{this.getOrInitializeService({instanceIdentifier:a})}catch(e){}for(var[t,r]of this.instancesDeferred.entries()){t=this.normalizeInstanceIdentifier(t);try{var n=this.getOrInitializeService({instanceIdentifier:t});r.resolve(n)}catch(e){}}}}clearInstance(e=a){this.instancesDeferred.delete(e),this.instancesOptions.delete(e),this.instances.delete(e)}async delete(){var e=Array.from(this.instances.values());await Promise.all([...e.filter(e=>"INTERNAL"in e).map(e=>e.INTERNAL.delete()),...e.filter(e=>"_delete"in e).map(e=>e._delete())])}isComponentSet(){return null!=this.component}isInitialized(e=a){return this.instances.has(e)}getOptions(e=a){return this.instancesOptions.get(e)||{}}initialize(e={}){var{options:t={}}=e,r=this.normalizeInstanceIdentifier(e.instanceIdentifier);if(this.isInitialized(r))throw Error(this.name+`(${r}) has already been initialized`);if(!this.isComponentSet())throw Error(`Component ${this.name} has not been registered yet`);var n,a,i=this.getOrInitializeService({instanceIdentifier:r,options:t});for([n,a]of this.instancesDeferred.entries())r===this.normalizeInstanceIdentifier(n)&&a.resolve(i);return i}onInit(e,t){var r=this.normalizeInstanceIdentifier(t);let n=this.onInitCallbacks.get(r)??new Set;n.add(e),this.onInitCallbacks.set(r,n);var a=this.instances.get(r);return a&&e(a,r),()=>{n.delete(e)}}invokeOnInitCallbacks(e,t){var r=this.onInitCallbacks.get(t);if(r)for(var n of r)try{n(e,t)}catch{}}getOrInitializeService({instanceIdentifier:e,options:t={}}){let r=this.instances.get(e);if(!r&&this.component&&(r=this.component.instanceFactory(this.container,{instanceIdentifier:(n=e)===a?void 0:n,options:t}),this.instances.set(e,r),this.instancesOptions.set(e,t),this.invokeOnInitCallbacks(r,e),this.component.onInstanceCreated))try{this.component.onInstanceCreated(this.container,e,r)}catch{}var n;return r||null}normalizeInstanceIdentifier(e=a){return!this.component||this.component.multipleInstances?e:a}shouldAutoInitialize(){return!!this.component&&"EXPLICIT"!==this.component.instantiationMode}}class te{constructor(e){this.name=e,this.providers=new Map}addComponent(e){var t=this.getProvider(e.name);if(t.isComponentSet())throw new Error(`Component ${e.name} has already been registered with `+this.name);t.setComponent(e)}addOrOverwriteComponent(e){this.getProvider(e.name).isComponentSet()&&this.providers.delete(e.name),this.addComponent(e)}getProvider(e){var t;return this.providers.has(e)?this.providers.get(e):(t=new ee(e,this),this.providers.set(e,t),t)}getProviders(){return Array.from(this.providers.values())}}let d=[];var p,u;(e=p=p||{})[e.DEBUG=0]="DEBUG",e[e.VERBOSE=1]="VERBOSE",e[e.INFO=2]="INFO",e[e.WARN=3]="WARN",e[e.ERROR=4]="ERROR",e[e.SILENT=5]="SILENT";let re={debug:p.DEBUG,verbose:p.VERBOSE,info:p.INFO,warn:p.WARN,error:p.ERROR,silent:p.SILENT},ne=p.INFO,ae={[p.DEBUG]:"log",[p.VERBOSE]:"log",[p.INFO]:"info",[p.WARN]:"warn",[p.ERROR]:"error"},ie=(e,t,...r)=>{if(!(t<e.logLevel)){var n=(new Date).toISOString(),a=ae[t];if(!a)throw new Error(`Attempted to log a message with an invalid logType (value: ${t})`);console[a](`[${n}]  ${e.name}:`,...r)}};class se{constructor(e){this.name=e,this._logLevel=ne,this._logHandler=ie,this._userLogHandler=null,d.push(this)}get logLevel(){return this._logLevel}set logLevel(e){if(!(e in p))throw new TypeError(`Invalid value "${e}" assigned to \`logLevel\``);this._logLevel=e}setLogLevel(e){this._logLevel="string"==typeof e?re[e]:e}get logHandler(){return this._logHandler}set logHandler(e){if("function"!=typeof e)throw new TypeError("Value assigned to `logHandler` must be a function");this._logHandler=e}get userLogHandler(){return this._userLogHandler}set userLogHandler(e){this._userLogHandler=e}debug(...e){this._userLogHandler&&this._userLogHandler(this,p.DEBUG,...e),this._logHandler(this,p.DEBUG,...e)}log(...e){this._userLogHandler&&this._userLogHandler(this,p.VERBOSE,...e),this._logHandler(this,p.VERBOSE,...e)}info(...e){this._userLogHandler&&this._userLogHandler(this,p.INFO,...e),this._logHandler(this,p.INFO,...e)}warn(...e){this._userLogHandler&&this._userLogHandler(this,p.WARN,...e),this._logHandler(this,p.WARN,...e)}error(...e){this._userLogHandler&&this._userLogHandler(this,p.ERROR,...e),this._logHandler(this,p.ERROR,...e)}}let oe=(t,e)=>e.some(e=>t instanceof e),ce,le;let he=new WeakMap,f=new WeakMap,de=new WeakMap,g=new WeakMap,b=new WeakMap;let m={get(e,t,r){if(e instanceof IDBTransaction){if("done"===t)return f.get(e);if("objectStoreNames"===t)return e.objectStoreNames||de.get(e);if("store"===t)return r.objectStoreNames[1]?void 0:r.objectStore(r.objectStoreNames[0])}return v(e[t])},set(e,t,r){return e[t]=r,!0},has(e,t){return e instanceof IDBTransaction&&("done"===t||"store"===t)||t in e}};function pe(n){return n!==IDBDatabase.prototype.transaction||"objectStoreNames"in IDBTransaction.prototype?(le=le||[IDBCursor.prototype.advance,IDBCursor.prototype.continue,IDBCursor.prototype.continuePrimaryKey]).includes(n)?function(...e){return n.apply(_(this),e),v(he.get(this))}:function(...e){return v(n.apply(_(this),e))}:function(e,...t){var r=n.call(_(this),e,...t);return de.set(r,e.sort?e.sort():[e]),v(r)}}function ue(e){var i,t;return"function"==typeof e?pe(e):(e instanceof IDBTransaction&&(i=e,f.has(i)||(t=new Promise((e,t)=>{let r=()=>{i.removeEventListener("complete",n),i.removeEventListener("error",a),i.removeEventListener("abort",a)},n=()=>{e(),r()},a=()=>{t(i.error||new DOMException("AbortError","AbortError")),r()};i.addEventListener("complete",n),i.addEventListener("error",a),i.addEventListener("abort",a)}),f.set(i,t))),oe(e,ce=ce||[IDBDatabase,IDBObjectStore,IDBIndex,IDBCursor,IDBTransaction])?new Proxy(e,m):e)}function v(e){var i,t;return e instanceof IDBRequest?(i=e,(t=new Promise((e,t)=>{let r=()=>{i.removeEventListener("success",n),i.removeEventListener("error",a)},n=()=>{e(v(i.result)),r()},a=()=>{t(i.error),r()};i.addEventListener("success",n),i.addEventListener("error",a)})).then(e=>{e instanceof IDBCursor&&he.set(e,i)}).catch(()=>{}),b.set(t,i),t):g.has(e)?g.get(e):((t=ue(e))!==e&&(g.set(e,t),b.set(t,e)),t)}let _=e=>b.get(e);let fe=["get","getKey","getAll","getAllKeys","count"],ge=["put","add","delete","clear"],y=new Map;function be(e,t){if(e instanceof IDBDatabase&&!(t in e)&&"string"==typeof t){if(y.get(t))return y.get(t);let a=t.replace(/FromIndex$/,""),i=t!==a,s=ge.includes(a);var r;return a in(i?IDBIndex:IDBObjectStore).prototype&&(s||fe.includes(a))?(r=async function(e,...t){var r=this.transaction(e,s?"readwrite":"readonly");let n=r.store;return i&&(n=n.index(t.shift())),(await Promise.all([n[a](...t),s&&r.done]))[0]},y.set(t,r),r):void 0}}m={...u=m,get:(e,t,r)=>be(e,t)||u.get(e,t,r),has:(e,t)=>!!be(e,t)||u.has(e,t)};class me{constructor(e){this.container=e}getPlatformInfoString(){return this.container.getProviders().map(e=>{var t;return"VERSION"===e.getComponent()?.type?(t=e.getImmediate()).library+"/"+t.version:null}).filter(e=>e).join(" ")}}let E="@firebase/app",C="0.14.10",w=new se("@firebase/app");var e;let I="[DEFAULT]",ve={"@firebase/app":"fire-core","@firebase/app-compat":"fire-core-compat","@firebase/analytics":"fire-analytics","@firebase/analytics-compat":"fire-analytics-compat","@firebase/app-check":"fire-app-check","@firebase/app-check-compat":"fire-app-check-compat","@firebase/auth":"fire-auth","@firebase/auth-compat":"fire-auth-compat","@firebase/database":"fire-rtdb","@firebase/data-connect":"fire-data-connect","@firebase/database-compat":"fire-rtdb-compat","@firebase/functions":"fire-fn","@firebase/functions-compat":"fire-fn-compat","@firebase/installations":"fire-iid","@firebase/installations-compat":"fire-iid-compat","@firebase/messaging":"fire-fcm","@firebase/messaging-compat":"fire-fcm-compat","@firebase/performance":"fire-perf","@firebase/performance-compat":"fire-perf-compat","@firebase/remote-config":"fire-rc","@firebase/remote-config-compat":"fire-rc-compat","@firebase/storage":"fire-gcs","@firebase/storage-compat":"fire-gcs-compat","@firebase/firestore":"fire-fst","@firebase/firestore-compat":"fire-fst-compat","@firebase/ai":"fire-vertex","fire-js":"fire-js",firebase:"fire-js-all"},D=new Map,S=new Map,A=new Map;function O(t,r){try{t.container.addComponent(r)}catch(e){w.debug(`Component ${r.name} failed to register with FirebaseApp `+t.name,e)}}function _e(e,t){e.container.addOrOverwriteComponent(t)}function N(e){var t,r,n=e.name;if(A.has(n))return w.debug(`There were multiple attempts to register component ${n}.`),!1;A.set(n,e);for(t of D.values())O(t,e);for(r of S.values())O(r,e);return!0}function ye(e,t){var r=e.container.getProvider("heartbeat").getImmediate({optional:!0});return r&&r.triggerHeartbeat(),e.container.getProvider(t)}function L(e){return void 0!==e.options}function Ee(e){return!L(e)&&("authIdToken"in e||"appCheckToken"in e||"releaseOnDeref"in e||"automaticDataCollectionEnabled"in e)}let B=new n("app","Firebase",{"no-app":"No Firebase App '{$appName}' has been created - call initializeApp() first","bad-app-name":"Illegal App name: '{$appName}'","duplicate-app":"Firebase App named '{$appName}' already exists with different options or config","app-deleted":"Firebase App named '{$appName}' already deleted","server-app-deleted":"Firebase Server App has been deleted","no-options":"Need to provide options, when not being deployed to hosting via source.","invalid-app-argument":"firebase.{$appName}() takes either no argument or a Firebase App instance.","invalid-log-argument":"First argument to `onLog` must be null or a function.","idb-open":"Error thrown when opening IndexedDB. Original error: {$originalErrorMessage}.","idb-get":"Error thrown when reading from IndexedDB. Original error: {$originalErrorMessage}.","idb-set":"Error thrown when writing to IndexedDB. Original error: {$originalErrorMessage}.","idb-delete":"Error thrown when deleting from IndexedDB. Original error: {$originalErrorMessage}.","finalization-registry-not-supported":"FirebaseServerApp deleteOnDeref field defined but the JS runtime does not support FinalizationRegistry.","invalid-server-app-environment":"FirebaseServerApp is not for use in browser environments."});class Ce{constructor(e,t,r){this._isDeleted=!1,this._options={...e},this._config={...t},this._name=t.name,this._automaticDataCollectionEnabled=t.automaticDataCollectionEnabled,this._container=r,this.container.addComponent(new o("app",()=>this,"PUBLIC"))}get automaticDataCollectionEnabled(){return this.checkDestroyed(),this._automaticDataCollectionEnabled}set automaticDataCollectionEnabled(e){this.checkDestroyed(),this._automaticDataCollectionEnabled=e}get name(){return this.checkDestroyed(),this._name}get options(){return this.checkDestroyed(),this._options}get config(){return this.checkDestroyed(),this._config}get container(){return this._container}get isDeleted(){return this._isDeleted}set isDeleted(e){this._isDeleted=e}checkDestroyed(){if(this.isDeleted)throw B.create("app-deleted",{appName:this._name})}}function we(e,t){var r=j(e.split(".")[1]);null===r?console.error(`FirebaseServerApp ${t} is invalid: second part could not be parsed.`):void 0===JSON.parse(r).exp?console.error(`FirebaseServerApp ${t} is invalid: expiration claim could not be parsed`):1e3*JSON.parse(r).exp-(new Date).getTime()<=0&&console.error(`FirebaseServerApp ${t} is invalid: the token has expired.`)}class Ie extends Ce{constructor(e,t,r,n){var a=void 0===t.automaticDataCollectionEnabled||t.automaticDataCollectionEnabled,i={name:r,automaticDataCollectionEnabled:a};void 0!==e.apiKey?super(e,i,n):super(e.options,i,n),this._serverConfig={automaticDataCollectionEnabled:a,...t},this._serverConfig.authIdToken&&we(this._serverConfig.authIdToken,"authIdToken"),this._serverConfig.appCheckToken&&we(this._serverConfig.appCheckToken,"appCheckToken"),this._finalizationRegistry=null,"undefined"!=typeof FinalizationRegistry&&(this._finalizationRegistry=new FinalizationRegistry(()=>{this.automaticCleanup()})),this._refCount=0,this.incRefCount(this._serverConfig.releaseOnDeref),this._serverConfig.releaseOnDeref=void 0,t.releaseOnDeref=void 0,k(E,C,"serverapp")}toJSON(){}get refCount(){return this._refCount}incRefCount(e){this.isDeleted||(this._refCount++,void 0!==e&&null!==this._finalizationRegistry&&this._finalizationRegistry.register(e,this))}decRefCount(){return this.isDeleted?0:--this._refCount}automaticCleanup(){t(this)}get settings(){return this.checkDestroyed(),this._serverConfig}checkDestroyed(){if(this.isDeleted)throw B.create("server-app-deleted")}}let De="12.11.0";function T(e,t={}){let r=e;if("object"!=typeof t){let e=t;t={name:e}}var n={name:I,automaticDataCollectionEnabled:!0,...t};let a=n.name;if("string"!=typeof a||!a)throw B.create("bad-app-name",{appName:String(a)});if(!(r=r||l()))throw B.create("no-options");var i=D.get(a);if(i){if(h(r,i.options)&&h(n,i.config))return i;throw B.create("duplicate-app",{appName:a})}var s,o=new te(a);for(s of A.values())o.addComponent(s);i=new Ce(r,n,o);return D.set(a,i),i}async function t(e){let t=!1;var r=e.name;D.has(r)?(t=!0,D.delete(r)):S.has(r)&&e.decRefCount()<=0&&(S.delete(r),t=!0),t&&(await Promise.all(e.container.getProviders().map(e=>e.delete())),e.isDeleted=!0)}function k(e,t,r){let n=ve[e]??e;r&&(n+="-"+r);var a,i=n.match(/\s|\//),s=t.match(/\s|\//);i||s?(a=[`Unable to register library "${n}" with version "${t}":`],i&&a.push(`library name "${n}" contains illegal characters (whitespace or "/")`),i&&s&&a.push("and"),s&&a.push(`version name "${t}" contains illegal characters (whitespace or "/")`),w.warn(a.join(" "))):N(new o(n+"-version",()=>({library:n,version:t}),"VERSION"))}function Se(e,t){if(null!==e&&"function"!=typeof e)throw B.create("invalid-log-argument");var r,i=e,n=t;for(r of d){let a=null;n&&n.level&&(a=re[n.level]),r.userLogHandler=null===i?null:(e,t,...r)=>{var n=r.map(e=>{if(null==e)return null;if("string"==typeof e)return e;if("number"==typeof e||"boolean"==typeof e)return e.toString();if(e instanceof Error)return e.message;try{return JSON.stringify(e)}catch(e){return null}}).filter(e=>e).join(" ");t>=(a??e.logLevel)&&i({level:p[t].toLowerCase(),message:n,args:r,type:e.name})}}}function Ae(e){var t;t=e,d.forEach(e=>{e.setLogLevel(t)})}let Oe="firebase-heartbeat-database",Ne=1,R="firebase-heartbeat-store",Le=null;function Be(){return Le=Le||((e,t,{blocked:r,upgrade:n,blocking:a,terminated:i})=>{let s=indexedDB.open(e,t);var o=v(s);return n&&s.addEventListener("upgradeneeded",e=>{n(v(s.result),e.oldVersion,e.newVersion,v(s.transaction),e)}),r&&s.addEventListener("blocked",e=>r(e.oldVersion,e.newVersion,e)),o.then(e=>{i&&e.addEventListener("close",()=>i()),a&&e.addEventListener("versionchange",e=>a(e.oldVersion,e.newVersion,e))}).catch(()=>{}),o})(Oe,Ne,{upgrade:(e,t)=>{if(0===t)try{e.createObjectStore(R)}catch(e){console.warn(e)}}}).catch(e=>{throw B.create("idb-open",{originalErrorMessage:e.message})})}async function Te(e,t){try{var r=(await Be()).transaction(R,"readwrite");await r.objectStore(R).put(t,ke(e)),await r.done}catch(e){e instanceof s?w.warn(e.message):(r=B.create("idb-set",{originalErrorMessage:e?.message}),w.warn(r.message))}}function ke(e){return e.name+"!"+e.options.appId}class Re{constructor(e){this.container=e,this._heartbeatsCache=null;var t=this.container.getProvider("app").getImmediate();this._storage=new Fe(t),this._heartbeatsCachePromise=this._storage.read().then(e=>this._heartbeatsCache=e)}async triggerHeartbeat(){try{var e,r=this.container.getProvider("platform-logger").getImmediate().getPlatformInfoString();let t=Pe();if(null!=this._heartbeatsCache?.heartbeats||(this._heartbeatsCache=await this._heartbeatsCachePromise,null!=this._heartbeatsCache?.heartbeats))if(this._heartbeatsCache.lastSentHeartbeatDate!==t&&!this._heartbeatsCache.heartbeats.some(e=>e.date===t))return this._heartbeatsCache.heartbeats.push({date:t,agent:r}),30<this._heartbeatsCache.heartbeats.length&&(e=(e=>{if(0===e.length)return-1;let t=0,r=e[0].date;for(let n=1;n<e.length;n++)e[n].date<r&&(r=e[n].date,t=n);return t})(this._heartbeatsCache.heartbeats),this._heartbeatsCache.heartbeats.splice(e,1)),this._storage.overwrite(this._heartbeatsCache)}catch(e){w.warn(e)}}async getHeartbeatsHeader(){try{var e,t,r,n;return(null===this._heartbeatsCache&&await this._heartbeatsCachePromise,null==this._heartbeatsCache?.heartbeats||0===this._heartbeatsCache.heartbeats.length)?"":(e=Pe(),{heartbeatsToSend:t,unsentEntries:r}=((e,t=1024)=>{let r=[],n=e.slice();for(let i of e){var a=r.find(e=>e.agent===i.agent);if(a){if(a.dates.push(i.date),Me(r)>t){a.dates.pop();break}}else if(r.push({agent:i.agent,dates:[i.date]}),Me(r)>t){r.pop();break}n=n.slice(1)}return{heartbeatsToSend:r,unsentEntries:n}})(this._heartbeatsCache.heartbeats),n=H(JSON.stringify({version:2,heartbeats:t})),this._heartbeatsCache.lastSentHeartbeatDate=e,0<r.length?(this._heartbeatsCache.heartbeats=r,await this._storage.overwrite(this._heartbeatsCache)):(this._heartbeatsCache.heartbeats=[],this._storage.overwrite(this._heartbeatsCache)),n)}catch(e){return w.warn(e),""}}}function Pe(){return(new Date).toISOString().substring(0,10)}class Fe{constructor(e){this.app=e,this._canUseIndexedDBPromise=this.runIndexedDBEnvironmentCheck()}async runIndexedDBEnvironmentCheck(){return!!(()=>{try{return"object"==typeof indexedDB}catch(e){}})()&&new Promise((n,a)=>{try{let e=!0,t="validate-browser-context-for-indexeddb-analytics-module",r=self.indexedDB.open(t);r.onsuccess=()=>{r.result.close(),e||self.indexedDB.deleteDatabase(t),n(!0)},r.onupgradeneeded=()=>{e=!1},r.onerror=()=>{a(r.error?.message||"")}}catch(e){a(e)}}).then(()=>!0).catch(()=>!1)}async read(){var e;return await this._canUseIndexedDBPromise&&(e=await(async e=>{try{var t=(await Be()).transaction(R),r=await t.objectStore(R).get(ke(e));return await t.done,r}catch(e){e instanceof s?w.warn(e.message):(t=B.create("idb-get",{originalErrorMessage:e?.message}),w.warn(t.message))}})(this.app))?.heartbeats?e:{heartbeats:[]}}async overwrite(e){var t;if(await this._canUseIndexedDBPromise)return t=await this.read(),Te(this.app,{lastSentHeartbeatDate:e.lastSentHeartbeatDate??t.lastSentHeartbeatDate,heartbeats:e.heartbeats})}async add(e){var t;if(await this._canUseIndexedDBPromise)return t=await this.read(),Te(this.app,{lastSentHeartbeatDate:e.lastSentHeartbeatDate??t.lastSentHeartbeatDate,heartbeats:[...t.heartbeats,...e.heartbeats]})}}function Me(e){return H(JSON.stringify({version:2,heartbeats:e})).length}e="",N(new o("platform-logger",e=>new me(e),"PRIVATE")),N(new o("heartbeat",e=>new Re(e),"PRIVATE")),k(E,C,e),k(E,C,"esm2020"),k("fire-js","");var ze=Object.freeze({__proto__:null,SDK_VERSION:De,_DEFAULT_ENTRY_NAME:I,_addComponent:O,_addOrOverwriteComponent:_e,_apps:D,_clearComponents:function(){A.clear()},_components:A,_getProvider:ye,_isFirebaseApp:L,_isFirebaseServerApp:function(e){return null!=e&&void 0!==e.settings},_isFirebaseServerAppSettings:Ee,_registerComponent:N,_removeServiceInstance:function(e,t,r=I){ye(e,t).clearInstance(r)},_serverApps:S,deleteApp:t,getApp:function(e=I){var t=D.get(e);if(!t&&e===I&&l())return T();if(t)return t;throw B.create("no-app",{appName:e})},getApps:function(){return Array.from(D.values())},initializeApp:T,initializeServerApp:function(e,t={}){if(("undefined"!=typeof window||K())&&!K())throw B.create("invalid-server-app-environment");let r,n=t||{};if(e&&(L(e)?r=e.options:Ee(e)?n=e:r=e),void 0===n.automaticDataCollectionEnabled&&(n.automaticDataCollectionEnabled=!0),!(r=r||l()))throw B.create("no-options");var a={...n,...r};if(void 0!==a.releaseOnDeref&&delete a.releaseOnDeref,void 0!==n.releaseOnDeref&&"undefined"==typeof FinalizationRegistry)throw B.create("finalization-registry-not-supported",{});var a=""+[...JSON.stringify(a)].reduce((e,t)=>Math.imul(31,e)+t.charCodeAt(0)|0,0),i=S.get(a);if(i)i.incRefCount(n.releaseOnDeref);else{var s,o=new te(a);for(s of A.values())o.addComponent(s);i=new Ie(r,n,a,o),S.set(a,i)}return i},onLog:Se,registerVersion:k,setLogLevel:Ae,FirebaseError:s});class xe{constructor(e,t){this._delegate=e,this.firebase=t,O(e,new o("app-compat",()=>this,"PUBLIC")),this.container=e.container}get automaticDataCollectionEnabled(){return this._delegate.automaticDataCollectionEnabled}set automaticDataCollectionEnabled(e){this._delegate.automaticDataCollectionEnabled=e}get name(){return this._delegate.name}get options(){return this._delegate.options}delete(){return new Promise(e=>{this._delegate.checkDestroyed(),e()}).then(()=>(this.firebase.INTERNAL.removeApp(this.name),t(this._delegate)))}_getService(e,t=I){this._delegate.checkDestroyed();var r=this._delegate.container.getProvider(e);return r.isInitialized()||"EXPLICIT"!==r.getComponent()?.instantiationMode||r.initialize(),r.getImmediate({identifier:t})}_removeServiceInstance(e,t=I){this._delegate.container.getProvider(e).clearInstance(t)}_addComponent(e){O(this._delegate,e)}_addOrOverwriteComponent(e){_e(this._delegate,e)}toJSON(){return{name:this.name,automaticDataCollectionEnabled:this.automaticDataCollectionEnabled,options:this.options}}}let He=new n("app-compat","Firebase",{"no-app":"No Firebase App '{$appName}' has been created - call Firebase App.initializeApp()","invalid-app-argument":"firebase.{$appName}() takes either no argument or a Firebase App instance."});function je(a){let i={},s={__esModule:!0,initializeApp:function(e,t={}){var r=T(e,t);if(X(i,r.name))return i[r.name];var n=new a(r,s);return i[r.name]=n},app:o,registerVersion:k,setLogLevel:Ae,onLog:Se,apps:null,SDK_VERSION:De,INTERNAL:{registerComponent:function(t){let r=t.name,n=r.replace("-compat","");{var e;N(t)&&"PUBLIC"===t.type&&(e=(e=o())=>{if("function"!=typeof e[n])throw He.create("invalid-app-argument",{appName:r});return e[n]()},void 0!==t.serviceProps&&c(e,t.serviceProps),s[n]=e,a.prototype[n]=function(...e){return this._getService.bind(this,r).apply(this,t.multipleInstances?e:[])})}return"PUBLIC"===t.type?s[n]:null},removeApp:function(e){delete i[e]},useAsService:function(e,t){if("serverAuth"===t)return null;var r=t;return r},modularAPIs:ze}};function o(e){if(e=e||I,X(i,e))return i[e];throw He.create("no-app",{appName:e})}return s.default=s,Object.defineProperty(s,"apps",{get:function(){return Object.keys(i).map(e=>i[e])}}),o.App=a,s}var Ve=function e(){let t=je(xe);return t.INTERNAL={...t.INTERNAL,createFirebaseNamespace:e,extendNamespace:function(e){c(t,e)},createSubscribe:Z,ErrorFactory:n,deepExtend:c},t}(),$e=new se("@firebase/app-compat");try{var We,P=V();void 0!==P.firebase&&($e.warn(`
       Warning: Firebase is already defined in the global scope. Please make sure
@@ -32,115 +32,109 @@ This typically indicates that your device does not have a healthy Internet conne
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --bg:#0d0d0f;--bg2:#141417;--bg3:#1a1a1f;--bg4:#202025;
-  --border:rgba(255,255,255,0.06);--border2:rgba(255,255,255,0.12);
+  --border:rgba(255,255,255,0.06);--border2:rgba(255,255,255,0.13);
   --text:#f0f0f0;--muted:#888;--muted2:#555;
   --accent:#ff5722;--accent2:#ff8a50;
   --gold:#f5a623;--green:#4caf50;--red:#f44336;
   --blue:#2196f3;--purple:#9c27b0;
-  --sw:240px;
 }
 html,body{height:100%;overflow:hidden;font-family:"DM Sans",sans-serif;background:var(--bg);color:var(--text);}
-
-/* SCREENS */
 #screen-setup,#screen-login{position:fixed;inset:0;z-index:900;background:var(--bg);display:none;align-items:center;justify-content:center;}
 #screen-setup.show,#screen-login.show{display:flex;}
 #screen-app{display:none;height:100vh;}
 #screen-app.show{display:flex;}
 
 /* SETUP */
-.setup-wrap{width:90%;max-width:620px;max-height:90vh;overflow-y:auto;}
-.setup-logo{width:52px;height:52px;background:var(--accent);border-radius:12px;display:flex;align-items:center;justify-content:center;font-family:"Syne",sans-serif;font-weight:800;font-size:18px;color:#fff;margin:0 auto 16px;}
-.setup-h{font-family:"Syne",sans-serif;font-weight:800;font-size:22px;text-align:center;color:var(--text);margin-bottom:4px;}
-.setup-sub{font-size:13px;color:var(--muted);text-align:center;margin-bottom:24px;}
-.setup-box{background:var(--bg2);border:1px solid var(--border2);border-radius:12px;padding:20px;margin-bottom:12px;}
-.setup-box h3{font-size:13px;font-weight:600;color:var(--text);margin-bottom:10px;display:flex;align-items:center;gap:8px;}
-.setup-box p{font-size:12.5px;color:var(--muted);line-height:1.7;margin-bottom:10px;}
-.setup-box a{color:var(--accent2);text-decoration:none;}
-.cfg-inp{width:100%;background:var(--bg3);border:1px solid var(--border2);border-radius:8px;padding:9px 12px;color:var(--text);font-family:"DM Sans",sans-serif;font-size:13px;outline:none;margin-bottom:6px;}
-.cfg-inp:focus{border-color:var(--accent);}
-.cfg-inp::placeholder{color:var(--muted2);}
-.err-box{display:none;background:rgba(244,67,54,0.1);border:1px solid rgba(244,67,54,0.25);border-radius:8px;padding:10px 14px;font-size:13px;color:#ef9a9a;margin-bottom:12px;}
-.btn-launch{width:100%;background:var(--accent);color:#fff;border:none;border-radius:10px;padding:13px;font-family:"Syne",sans-serif;font-size:15px;font-weight:700;cursor:pointer;transition:background .2s;}
+.setup-wrap{width:90%;max-width:600px;max-height:92vh;overflow-y:auto;padding-bottom:8px;}
+.setup-logo{width:50px;height:50px;background:var(--accent);border-radius:12px;display:flex;align-items:center;justify-content:center;font-family:"Syne",sans-serif;font-weight:800;font-size:17px;color:#fff;margin:0 auto 14px;}
+.setup-h{font-family:"Syne",sans-serif;font-weight:800;font-size:21px;text-align:center;margin-bottom:3px;}
+.setup-s{font-size:13px;color:var(--muted);text-align:center;margin-bottom:20px;}
+.sbox{background:var(--bg2);border:1px solid var(--border2);border-radius:12px;padding:18px;margin-bottom:11px;}
+.sbox h3{font-size:13px;font-weight:600;margin-bottom:9px;}
+.sbox p{font-size:12.5px;color:var(--muted);line-height:1.75;margin-bottom:10px;}
+.sbox a{color:var(--accent2);text-decoration:none;}
+.ci{width:100%;background:var(--bg3);border:1px solid var(--border2);border-radius:8px;padding:9px 12px;color:var(--text);font-family:"DM Sans",sans-serif;font-size:13px;outline:none;margin-bottom:6px;}
+.ci:last-of-type{margin-bottom:0;}
+.ci:focus{border-color:var(--accent);}
+.ci::placeholder{color:var(--muted2);}
+.err{display:none;background:rgba(244,67,54,.1);border:1px solid rgba(244,67,54,.25);border-radius:8px;padding:10px 13px;font-size:13px;color:#ef9a9a;margin-bottom:11px;}
+.btn-launch{width:100%;background:var(--accent);color:#fff;border:none;border-radius:10px;padding:13px;font-family:"Syne",sans-serif;font-size:14px;font-weight:700;cursor:pointer;transition:background .2s;margin-top:4px;}
 .btn-launch:hover{background:#e64a19;}
-.setup-foot{font-size:11.5px;color:var(--muted2);text-align:center;margin-top:10px;}
+.setup-foot{font-size:11.5px;color:var(--muted2);text-align:center;margin-top:9px;}
 .setup-foot span{color:var(--accent2);cursor:pointer;}
-code{background:var(--bg3);border:1px solid var(--border);border-radius:4px;padding:1px 6px;font-size:11px;color:#81c784;}
+code{background:rgba(255,255,255,.07);border-radius:4px;padding:1px 6px;font-size:11px;color:#81c784;}
 
 /* LOGIN */
-.login-card{background:var(--bg2);border:1px solid var(--border2);border-radius:20px;padding:44px 40px;width:360px;text-align:center;animation:fadeUp .4s ease;}
-@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
-.login-logo{width:60px;height:60px;background:var(--accent);border-radius:14px;display:inline-flex;align-items:center;justify-content:center;font-family:"Syne",sans-serif;font-weight:800;font-size:22px;color:#fff;margin-bottom:18px;}
-.login-h{font-family:"Syne",sans-serif;font-weight:800;font-size:26px;}
-.login-sub{font-size:13px;color:var(--muted);margin:6px 0 6px;}
-.login-loc{font-size:12px;color:var(--muted2);margin-bottom:28px;}
-.btn-google{width:100%;display:flex;align-items:center;justify-content:center;gap:12px;background:var(--bg3);border:1px solid var(--border2);border-radius:10px;padding:13px;cursor:pointer;font-family:"DM Sans",sans-serif;font-size:14px;font-weight:500;color:var(--text);transition:background .2s;}
-.btn-google:hover{background:var(--bg4);}
-.login-note{font-size:11px;color:var(--muted2);margin-top:18px;line-height:1.6;}
-.login-err{display:none;font-size:12px;color:#ef9a9a;margin-top:12px;background:rgba(244,67,54,0.08);padding:8px 12px;border-radius:6px;}
+.login-card{background:var(--bg2);border:1px solid var(--border2);border-radius:20px;padding:44px 40px;width:360px;text-align:center;animation:up .4s ease;}
+@keyframes up{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+.llogo{width:58px;height:58px;background:var(--accent);border-radius:14px;display:inline-flex;align-items:center;justify-content:center;font-family:"Syne",sans-serif;font-weight:800;font-size:21px;color:#fff;margin-bottom:16px;}
+.lh{font-family:"Syne",sans-serif;font-weight:800;font-size:25px;}
+.ls{font-size:13px;color:var(--muted);margin:5px 0 5px;}
+.lloc{font-size:12px;color:var(--muted2);margin-bottom:26px;}
+.btn-g{width:100%;display:flex;align-items:center;justify-content:center;gap:12px;background:var(--bg3);border:1px solid var(--border2);border-radius:10px;padding:13px;cursor:pointer;font-family:"DM Sans",sans-serif;font-size:14px;font-weight:500;color:var(--text);transition:background .2s;border:none;outline:none;}
+.btn-g:hover{background:var(--bg4);}
+.lerr{display:none;font-size:12px;color:#ef9a9a;margin-top:11px;background:rgba(244,67,54,.08);padding:8px 12px;border-radius:6px;}
+.lnote{font-size:11px;color:var(--muted2);margin-top:16px;line-height:1.65;}
 
 /* TOAST */
-#toasts{position:fixed;top:18px;right:18px;z-index:9999;display:flex;flex-direction:column;gap:8px;}
-.toast{background:var(--bg2);border:1px solid var(--border2);border-left:3px solid var(--green);border-radius:10px;padding:11px 15px;font-size:13px;color:var(--text);min-width:240px;animation:tIn .3s ease;display:flex;gap:9px;align-items:center;}
-.toast.err{border-left-color:var(--red);}
-.toast.info{border-left-color:var(--blue);}
-@keyframes tIn{from{opacity:0;transform:translateX(16px)}to{opacity:1;transform:translateX(0)}}
+#toasts{position:fixed;top:16px;right:16px;z-index:9999;display:flex;flex-direction:column;gap:7px;pointer-events:none;}
+.toast{background:var(--bg2);border:1px solid var(--border2);border-left:3px solid var(--green);border-radius:9px;padding:10px 14px;font-size:13px;color:var(--text);min-width:220px;max-width:320px;display:flex;gap:9px;align-items:flex-start;animation:tIn .25s ease;}
+.toast.err{border-left-color:var(--red);}.toast.info{border-left-color:var(--blue);}
+@keyframes tIn{from{opacity:0;transform:translateX(14px)}to{opacity:1;transform:translateX(0)}}
 
-/* APP LAYOUT */
-#sidebar{width:var(--sw);flex-shrink:0;background:var(--bg2);border-right:1px solid var(--border);display:flex;flex-direction:column;height:100vh;}
-.brand{padding:20px 16px 18px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:11px;}
-.brand-ico{width:38px;height:38px;background:var(--accent);border-radius:9px;display:flex;align-items:center;justify-content:center;font-family:"Syne",sans-serif;font-weight:800;font-size:13px;color:#fff;flex-shrink:0;}
-.brand-name{font-family:"Syne",sans-serif;font-weight:700;font-size:13.5px;}
-.brand-loc{font-size:10.5px;color:var(--muted);margin-top:1px;}
-nav{flex:1;padding:12px 8px;overflow-y:auto;}
-.nlbl{font-size:9.5px;font-weight:700;color:var(--muted2);letter-spacing:.12em;text-transform:uppercase;padding:0 10px;margin:14px 0 5px;}
-.nlbl:first-child{margin-top:0;}
-.nbtn{display:flex;align-items:center;gap:9px;width:100%;padding:8px 10px;border-radius:7px;background:none;border:none;cursor:pointer;font-family:"DM Sans",sans-serif;font-size:13px;font-weight:500;color:var(--muted);transition:all .15s;text-align:left;margin-bottom:1px;}
-.nbtn:hover{background:rgba(255,255,255,0.04);color:var(--text);}
-.nbtn.on{background:rgba(255,87,34,0.12);color:var(--accent2);}
-.nbtn svg{width:15px;height:15px;flex-shrink:0;}
-.suser{padding:13px 14px;border-top:1px solid var(--border);display:flex;align-items:center;gap:10px;}
-.sava{width:32px;height:32px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;flex-shrink:0;overflow:hidden;}
-.sava img{width:100%;height:100%;object-fit:cover;border-radius:50%;}
-.sname{font-size:12.5px;font-weight:500;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
-.srole{font-size:10.5px;color:var(--muted);}
-.sout{background:none;border:none;cursor:pointer;color:var(--muted);padding:4px;border-radius:5px;transition:color .15s;flex-shrink:0;}
+/* APP */
+#sidebar{width:230px;flex-shrink:0;background:var(--bg2);border-right:1px solid var(--border);display:flex;flex-direction:column;height:100vh;overflow-y:auto;}
+.brand{padding:18px 15px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;}
+.bico{width:36px;height:36px;background:var(--accent);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:"Syne",sans-serif;font-weight:800;font-size:12px;color:#fff;flex-shrink:0;}
+.bnm{font-family:"Syne",sans-serif;font-weight:700;font-size:13px;}
+.bloc{font-size:10px;color:var(--muted);margin-top:1px;}
+nav{flex:1;padding:10px 7px;}
+.nlbl{font-size:9px;font-weight:700;color:var(--muted2);letter-spacing:.12em;text-transform:uppercase;padding:0 9px;margin:13px 0 4px;}
+.nlbl:first-child{margin-top:2px;}
+.nbtn{display:flex;align-items:center;gap:8px;width:100%;padding:8px 9px;border-radius:7px;background:none;border:none;cursor:pointer;font-family:"DM Sans",sans-serif;font-size:12.5px;font-weight:500;color:var(--muted);text-align:left;margin-bottom:1px;transition:all .15s;}
+.nbtn:hover{background:rgba(255,255,255,.04);color:var(--text);}
+.nbtn.on{background:rgba(255,87,34,.12);color:var(--accent2);}
+.nbtn svg{width:14px;height:14px;flex-shrink:0;}
+.suser{padding:12px 13px;border-top:1px solid var(--border);display:flex;align-items:center;gap:9px;}
+.sava{width:30px;height:30px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;flex-shrink:0;overflow:hidden;}
+.snm{font-size:12px;font-weight:500;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.srl{font-size:10px;color:var(--muted);}
+.sout{background:none;border:none;cursor:pointer;color:var(--muted);padding:3px;border-radius:4px;flex-shrink:0;}
 .sout:hover{color:var(--red);}
-
 #main{flex:1;display:flex;flex-direction:column;overflow:hidden;}
-.topbar{height:54px;flex-shrink:0;background:var(--bg2);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 22px;}
-.topbar-t{font-family:"Syne",sans-serif;font-weight:700;font-size:15px;}
-.topbar-r{display:flex;align-items:center;gap:9px;}
-.pill{display:flex;align-items:center;gap:5px;background:var(--bg3);border:1px solid var(--border2);border-radius:20px;padding:4px 11px;font-size:11.5px;color:var(--muted);}
-.dot-g{width:7px;height:7px;border-radius:50%;background:var(--green);animation:pu 2s infinite;}
-@keyframes pu{0%,100%{opacity:1}50%{opacity:.35}}
-
-#content{flex:1;overflow-y:auto;padding:22px;}
+.topbar{height:52px;flex-shrink:0;background:var(--bg2);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 20px;}
+.tbt{font-family:"Syne",sans-serif;font-weight:700;font-size:15px;}
+.tbr{display:flex;align-items:center;gap:8px;}
+.pill{display:flex;align-items:center;gap:5px;background:var(--bg3);border:1px solid var(--border2);border-radius:20px;padding:4px 11px;font-size:11px;color:var(--muted);}
+.dg{width:6px;height:6px;border-radius:50%;background:var(--green);animation:pu 2s infinite;}
+@keyframes pu{0%,100%{opacity:1}50%{opacity:.3}}
+#content{flex:1;overflow-y:auto;padding:20px;}
 .sec{display:none;}.sec.on{display:block;}
 
-/* STAT GRID */
-.sgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;margin-bottom:22px;}
-.sc{background:var(--bg2);border:1px solid var(--border);border-radius:11px;padding:16px 14px;position:relative;overflow:hidden;}
-.sc::before{content:"";position:absolute;top:0;left:0;right:0;height:2.5px;background:var(--c,var(--accent));}
-.sc-lbl{font-size:10.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:7px;}
-.sc-val{font-family:"Syne",sans-serif;font-size:26px;font-weight:700;}
+/* STATS */
+.sgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:11px;margin-bottom:20px;}
+.sc{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:15px 13px;position:relative;overflow:hidden;}
+.sc::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:var(--c,var(--accent));}
+.sc-lbl{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px;}
+.sc-val{font-family:"Syne",sans-serif;font-size:24px;font-weight:700;}
 .sc-hint{font-size:11px;color:var(--muted);margin-top:3px;}
 
 /* CARD */
-.card{background:var(--bg2);border:1px solid var(--border);border-radius:11px;padding:18px;margin-bottom:16px;}
-.card-h{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;}
-.card-t{font-family:"Syne",sans-serif;font-weight:600;font-size:13.5px;}
-.g2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px;}
+.card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:16px;margin-bottom:14px;}
+.card-h{display:flex;align-items:center;justify-content:space-between;margin-bottom:13px;}
+.card-t{font-family:"Syne",sans-serif;font-weight:600;font-size:13px;}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-bottom:14px;}
 
 /* TABLE */
 .tw{overflow-x:auto;}
 table{width:100%;border-collapse:collapse;font-size:12.5px;}
-th{text-align:left;padding:7px 11px;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);border-bottom:1px solid var(--border);white-space:nowrap;}
-td{padding:9px 11px;border-bottom:1px solid var(--border);vertical-align:middle;}
+th{text-align:left;padding:7px 10px;font-size:9.5px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);border-bottom:1px solid var(--border);white-space:nowrap;}
+td{padding:9px 10px;border-bottom:1px solid var(--border);vertical-align:middle;}
 tr:last-child td{border-bottom:none;}
-tbody tr:hover td{background:rgba(255,255,255,0.015);}
+tbody tr:hover td{background:rgba(255,255,255,.012);}
 
 /* BADGES */
-.b{display:inline-block;padding:3px 8px;border-radius:20px;font-size:10.5px;font-weight:600;}
+.b{display:inline-block;padding:2px 8px;border-radius:20px;font-size:10.5px;font-weight:600;}
 .bg{background:rgba(76,175,80,.14);color:#81c784;}
 .br{background:rgba(244,67,54,.14);color:#ef9a9a;}
 .by{background:rgba(245,166,35,.14);color:#ffd54f;}
@@ -156,56 +150,56 @@ tbody tr:hover td{background:rgba(255,255,255,0.015);}
 .rs{background:rgba(156,39,176,.15);color:#ce93d8;}
 
 /* FORM */
-.fgrid{display:grid;gap:10px;}.fgrid.c2{grid-template-columns:1fr 1fr;}.fgrid.c3{grid-template-columns:1fr 1fr 1fr;}
+.fgrid{display:grid;gap:10px;}.fgrid.c2{grid-template-columns:1fr 1fr;}
 .fg{display:flex;flex-direction:column;gap:4px;}
 .fl{font-size:11px;color:var(--muted);font-weight:500;}
 .fi,.fs{background:var(--bg3);border:1px solid var(--border2);border-radius:7px;padding:8px 11px;color:var(--text);font-family:"DM Sans",sans-serif;font-size:12.5px;outline:none;width:100%;transition:border-color .15s;}
 .fi:focus,.fs:focus{border-color:var(--accent);}
 .fi::placeholder{color:var(--muted2);}
-.fs option{background:var(--bg3);}
+.fs option{background:var(--bg2);}
 
 /* BUTTONS */
-.btn{padding:8px 16px;border-radius:7px;border:none;cursor:pointer;font-family:"DM Sans",sans-serif;font-size:12.5px;font-weight:500;transition:all .15s;}
+.btn{padding:7px 15px;border-radius:7px;border:none;cursor:pointer;font-family:"DM Sans",sans-serif;font-size:12.5px;font-weight:500;transition:all .15s;}
 .btn-p{background:var(--accent);color:#fff;}.btn-p:hover{background:#e64a19;}
 .btn-s{background:var(--bg3);color:var(--text);border:1px solid var(--border2);}.btn-s:hover{background:var(--bg4);}
 .btn-d{background:rgba(244,67,54,.1);color:#ef9a9a;border:1px solid rgba(244,67,54,.2);}.btn-d:hover{background:rgba(244,67,54,.2);}
-.btn-sm{padding:4px 10px;font-size:11.5px;}
+.btn-sm{padding:4px 10px;font-size:11px;}
 
 /* SEARCH */
-.srow{display:flex;gap:9px;margin-bottom:12px;align-items:center;flex-wrap:wrap;}
-.sinp{flex:1;min-width:160px;background:var(--bg3);border:1px solid var(--border2);border-radius:7px;padding:7px 11px;color:var(--text);font-family:"DM Sans",sans-serif;font-size:12.5px;outline:none;}
+.srow{display:flex;gap:8px;margin-bottom:11px;align-items:center;flex-wrap:wrap;}
+.sinp{flex:1;min-width:150px;background:var(--bg3);border:1px solid var(--border2);border-radius:7px;padding:7px 11px;color:var(--text);font-family:"DM Sans",sans-serif;font-size:12.5px;outline:none;}
 .sinp:focus{border-color:var(--accent);}
 .sinp::placeholder{color:var(--muted2);}
 .fbtns{display:flex;gap:5px;flex-wrap:wrap;}
-.fbtn{padding:5px 12px;border-radius:20px;border:1px solid var(--border2);background:var(--bg3);color:var(--muted);font-size:11.5px;font-weight:500;cursor:pointer;font-family:"DM Sans",sans-serif;transition:all .15s;}
+.fbtn{padding:5px 11px;border-radius:20px;border:1px solid var(--border2);background:var(--bg3);color:var(--muted);font-size:11px;font-weight:500;cursor:pointer;font-family:"DM Sans",sans-serif;transition:all .15s;}
 .fbtn.on{border-color:var(--accent);color:var(--accent2);background:rgba(255,87,34,.08);}
 
 /* MODAL */
-.mover{display:none;position:fixed;inset:0;z-index:500;background:rgba(0,0,0,.65);align-items:center;justify-content:center;}
+.mover{display:none;position:fixed;inset:0;z-index:800;background:rgba(0,0,0,.7);align-items:center;justify-content:center;}
 .mover.open{display:flex;}
-.mbox{background:var(--bg2);border:1px solid var(--border2);border-radius:14px;padding:24px;width:90%;max-width:520px;max-height:88vh;overflow-y:auto;animation:fadeUp .2s ease;}
-.mbox h2{font-family:"Syne",sans-serif;font-weight:700;font-size:16px;margin-bottom:18px;}
-.mfoot{display:flex;gap:9px;justify-content:flex-end;margin-top:18px;}
+.mbox{background:var(--bg2);border:1px solid var(--border2);border-radius:14px;padding:24px;width:92%;max-width:520px;max-height:88vh;overflow-y:auto;animation:up .22s ease;}
+.mbox h2{font-family:"Syne",sans-serif;font-weight:700;font-size:16px;margin-bottom:16px;}
+.mfoot{display:flex;gap:8px;justify-content:flex-end;margin-top:16px;padding-top:14px;border-top:1px solid var(--border);}
 
 /* MISC */
-.empty{text-align:center;padding:32px;color:var(--muted2);font-size:13px;}
+.empty{text-align:center;padding:28px;color:var(--muted2);font-size:13px;}
 .rbar{display:flex;align-items:center;gap:9px;margin-bottom:9px;}
-.rlbl{font-size:12px;color:var(--muted);width:90px;flex-shrink:0;}
+.rlbl{font-size:12px;color:var(--muted);width:85px;flex-shrink:0;}
 .rtrk{flex:1;height:6px;border-radius:3px;background:var(--border);overflow:hidden;}
 .rfll{height:100%;border-radius:3px;}
 .rval{font-size:12px;font-weight:500;width:70px;text-align:right;flex-shrink:0;}
-.aitem{display:flex;align-items:flex-start;gap:9px;padding:9px 0;border-bottom:1px solid var(--border);}
+.aitem{display:flex;align-items:flex-start;gap:8px;padding:8px 0;border-bottom:1px solid var(--border);}
 .aitem:last-child{border-bottom:none;}
 .adot{width:7px;height:7px;border-radius:50%;flex-shrink:0;margin-top:5px;}
 .atxt{font-size:12.5px;line-height:1.5;}
 .atm{font-size:11px;color:var(--muted);margin-top:2px;}
-.pbar{height:5px;border-radius:3px;background:var(--border);overflow:hidden;margin-top:5px;}
-.pfll{height:100%;border-radius:3px;}
-.plc{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.pbar{height:4px;border-radius:2px;background:var(--border);overflow:hidden;margin-top:5px;}
+.pfll{height:100%;border-radius:2px;}
+.plc{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px;margin-bottom:14px;}
 .plcard{background:var(--bg3);border:1px solid var(--border);border-radius:9px;padding:12px;}
-.plcard-n{font-size:11px;color:var(--muted);margin-bottom:5px;}
+.plcard-n{font-size:10.5px;color:var(--muted);margin-bottom:4px;}
 .plcard-v{font-family:"Syne",sans-serif;font-size:22px;font-weight:700;}
-.plcard-p{font-size:11.5px;color:var(--muted);margin-top:3px;}
+.plcard-p{font-size:11px;color:var(--muted);margin-top:3px;}
 ::-webkit-scrollbar{width:4px;height:4px;}
 ::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px;}
 </style>
@@ -218,54 +212,50 @@ tbody tr:hover td{background:rgba(255,255,255,0.015);}
 <div class="setup-wrap">
   <div class="setup-logo">EFC</div>
   <div class="setup-h">EFC GYM Setup</div>
-  <div class="setup-sub">One-time configuration. Your keys stay in your browser only.</div>
-
-  <div class="err-box" id="setup-err"></div>
-
-  <div class="setup-box">
-    <h3>🔥 Step 1 — Firebase (Google Login + Database)</h3>
-    <p>
-      1. Go to <a href="https://console.firebase.google.com" target="_blank">console.firebase.google.com</a> → Create project<br/>
-      2. <b>Authentication</b> → Sign-in Method → Google → Enable<br/>
-      3. <b>Firestore Database</b> → Create database → Start in test mode<br/>
-      4. <b>Project Settings</b> → Your Apps → Add Web App → Copy config
-    </p>
-    <input class="cfg-inp" id="c-apiKey" placeholder="apiKey  e.g. AIzaSyABC123..."/>
-    <input class="cfg-inp" id="c-authDomain" placeholder="authDomain  e.g. my-gym.firebaseapp.com"/>
-    <input class="cfg-inp" id="c-projectId" placeholder="projectId  e.g. my-gym-12345"/>
-    <input class="cfg-inp" id="c-appId" placeholder="appId  e.g. 1:123456:web:abc..."/>
+  <div class="setup-s">One-time setup. Your keys are stored only in your browser.</div>
+  <div class="err" id="setup-err"></div>
+  <div class="sbox">
+    <h3>🔥 Firebase — Google Login + Database (Free)</h3>
+    <p>1. <a href="https://console.firebase.google.com" target="_blank">console.firebase.google.com</a> → New Project<br/>
+       2. Authentication → Sign-in Method → Google → Enable<br/>
+       3. Firestore Database → Create database → Test mode<br/>
+       4. Project Settings → Your Apps → Add Web App → Copy config</p>
+    <input class="ci" id="c-apiKey"     placeholder="apiKey  (e.g. AIzaSyABC123...)"/>
+    <input class="ci" id="c-authDomain" placeholder="authDomain  (e.g. mygym.firebaseapp.com)"/>
+    <input class="ci" id="c-projectId"  placeholder="projectId  (e.g. mygym-12345)"/>
+    <input class="ci" id="c-appId"      placeholder="appId  (e.g. 1:123:web:abc)"/>
   </div>
-
-  <div class="setup-box">
-    <h3>📧 Step 2 — EmailJS (Login Alert Email) <span style="font-size:11px;color:var(--muted);font-weight:400;">optional</span></h3>
-    <p>
-      1. Go to <a href="https://www.emailjs.com" target="_blank">emailjs.com</a> → Free account<br/>
-      2. Add Email Service (Gmail) → Create Template<br/>
-      3. Template variables: <code>{{to_name}}</code> <code>{{to_email}}</code> <code>{{login_time}}</code> <code>{{gym_name}}</code>
-    </p>
-    <input class="cfg-inp" id="c-ejsPub" placeholder="Public Key  (Account → API Keys)"/>
-    <input class="cfg-inp" id="c-ejsSvc" placeholder="Service ID  e.g. service_abc123"/>
-    <input class="cfg-inp" id="c-ejsTpl" placeholder="Template ID  e.g. template_xyz789"/>
+  <div class="sbox">
+    <h3>📧 EmailJS — Login Alert Email <span style="font-size:11px;color:var(--muted);font-weight:400">(optional)</span></h3>
+    <p>1. <a href="https://www.emailjs.com" target="_blank">emailjs.com</a> → Free account → Add Gmail service<br/>
+       2. Create template with: <code>{{to_name}}</code> <code>{{to_email}}</code> <code>{{login_time}}</code> <code>{{gym_name}}</code></p>
+    <input class="ci" id="c-ejsPub" placeholder="Public Key"/>
+    <input class="ci" id="c-ejsSvc" placeholder="Service ID  (e.g. service_abc123)"/>
+    <input class="ci" id="c-ejsTpl" placeholder="Template ID  (e.g. template_xyz)"/>
   </div>
-
   <button class="btn-launch" onclick="doSaveConfig()">Save &amp; Launch Dashboard →</button>
-  <div class="setup-foot">Keys saved locally in your browser. <span onclick="localStorage.removeItem('efcgym');location.reload()">Clear saved config</span></div>
+  <div class="setup-foot">Stored locally. <span onclick="localStorage.removeItem('efcgym_v2');location.reload()">Clear saved keys</span></div>
 </div>
 </div>
 
 <!-- LOGIN -->
 <div id="screen-login">
 <div class="login-card">
-  <div class="login-logo">EFC</div>
-  <div class="login-h">EFC GYM</div>
-  <div class="login-sub">Owner Dashboard</div>
-  <div class="login-loc">📍 Najafgarh, New Delhi</div>
-  <button class="btn-google" onclick="doGoogleLogin()">
-    <svg width="20" height="20" viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.1H42V20H24v8h11.3C33.7 32.5 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34.1 6.4 29.3 4 24 4 12.95 4 4 12.95 4 24s8.95 20 20 20 20-8.95 20-20c0-1.3-.1-2.7-.4-3.9z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.6 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34.1 6.4 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.2 26.7 36 24 36c-5.2 0-9.6-3.5-11.3-8.2l-6.6 5.1C9.6 39.5 16.3 44 24 44z"/><path fill="#1976D2" d="M43.6 20.1H42V20H24v8h11.3c-.8 2.3-2.4 4.2-4.4 5.6l6.2 5.2C36.9 38 44 33 44 24c0-1.3-.1-2.7-.4-3.9z"/></svg>
+  <div class="llogo">EFC</div>
+  <div class="lh">EFC GYM</div>
+  <div class="ls">Owner Dashboard</div>
+  <div class="lloc">📍 Najafgarh, New Delhi</div>
+  <button class="btn-g" onclick="doGoogleLogin()">
+    <svg width="20" height="20" viewBox="0 0 48 48">
+      <path fill="#FFC107" d="M43.6 20.1H42V20H24v8h11.3C33.7 32.5 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34.1 6.4 29.3 4 24 4 12.95 4 4 12.95 4 24s8.95 20 20 20 20-8.95 20-20c0-1.3-.1-2.7-.4-3.9z"/>
+      <path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.6 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34.1 6.4 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/>
+      <path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.2 26.7 36 24 36c-5.2 0-9.6-3.5-11.3-8.2l-6.6 5.1C9.6 39.5 16.3 44 24 44z"/>
+      <path fill="#1976D2" d="M43.6 20.1H42V20H24v8h11.3c-.8 2.3-2.4 4.2-4.4 5.6l6.2 5.2C36.9 38 44 33 44 24c0-1.3-.1-2.7-.4-3.9z"/>
+    </svg>
     Sign in with Google
   </button>
-  <div class="login-err" id="login-err"></div>
-  <div class="login-note">Authorized personnel only.<br/>A login confirmation email will be sent on each sign-in.</div>
+  <div class="lerr" id="login-err"></div>
+  <div class="lnote">Authorized personnel only.<br/>A confirmation email is sent on each sign-in.</div>
 </div>
 </div>
 
@@ -273,8 +263,8 @@ tbody tr:hover td{background:rgba(255,255,255,0.015);}
 <div id="screen-app">
   <div id="sidebar">
     <div class="brand">
-      <div class="brand-ico">EFC</div>
-      <div><div class="brand-name">EFC GYM</div><div class="brand-loc">📍 Najafgarh, Delhi</div></div>
+      <div class="bico">EFC</div>
+      <div><div class="bnm">EFC GYM</div><div class="bloc">📍 Najafgarh, Delhi</div></div>
     </div>
     <nav>
       <div class="nlbl">Overview</div>
@@ -288,23 +278,22 @@ tbody tr:hover td{background:rgba(255,255,255,0.015);}
       <button class="nbtn" data-t="employees"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>Employees</button>
     </nav>
     <div class="suser">
-      <div class="sava" id="u-ava"><span id="u-ini">G</span></div>
-      <div style="flex:1;min-width:0"><div class="sname" id="u-name">Owner</div><div class="srole">Administrator</div></div>
+      <div class="sava" id="u-ava">G</div>
+      <div style="flex:1;min-width:0"><div class="snm" id="u-name">Owner</div><div class="srl">Administrator</div></div>
       <button class="sout" onclick="doSignOut()" title="Sign out"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5-5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z"/></svg></button>
     </div>
   </div>
 
   <div id="main">
     <div class="topbar">
-      <div class="topbar-t" id="page-title">Dashboard</div>
-      <div class="topbar-r">
-        <div class="pill"><div class="dot-g"></div>Live</div>
+      <div class="tbt" id="page-title">Dashboard</div>
+      <div class="tbr">
+        <div class="pill"><div class="dg"></div>Live</div>
         <div class="pill" id="t-date"></div>
       </div>
     </div>
     <div id="content">
 
-      <!-- DASHBOARD -->
       <div class="sec on" id="s-dashboard">
         <div class="sgrid" id="d-stats"></div>
         <div class="g2">
@@ -317,60 +306,56 @@ tbody tr:hover td{background:rgba(255,255,255,0.015);}
         </div>
       </div>
 
-      <!-- PAYMENTS -->
       <div class="sec" id="s-payments">
         <div class="sgrid" id="p-stats"></div>
         <div class="card">
           <div class="card-h"><div class="card-t">Payment Records</div><button class="btn btn-p btn-sm" onclick="openMod('payment')">+ Add Payment</button></div>
           <div class="srow">
-            <input class="sinp" id="p-srch" placeholder="Search name or ID…" oninput="renderPay()"/>
+            <input class="sinp" id="p-srch" placeholder="Search name or member ID…" oninput="renderPay()"/>
             <div class="fbtns">
-              <button class="fbtn on" data-pf="all" onclick="setF('pay','all',this)">All</button>
-              <button class="fbtn" data-pf="paid" onclick="setF('pay','paid',this)">Paid</button>
-              <button class="fbtn" data-pf="pending" onclick="setF('pay','pending',this)">Pending</button>
-              <button class="fbtn" data-pf="overdue" onclick="setF('pay','overdue',this)">Overdue</button>
+              <button class="fbtn on" data-pf="all"     onclick="setF('pay','all',this)">All</button>
+              <button class="fbtn"    data-pf="paid"    onclick="setF('pay','paid',this)">Paid</button>
+              <button class="fbtn"    data-pf="pending" onclick="setF('pay','pending',this)">Pending</button>
+              <button class="fbtn"    data-pf="overdue" onclick="setF('pay','overdue',this)">Overdue</button>
             </div>
           </div>
-          <div class="tw"><table><thead><tr><th>ID</th><th>Name</th><th>Plan</th><th>Amount</th><th>Due</th><th>Paid</th><th>Mode</th><th>Status</th><th>Actions</th></tr></thead><tbody id="p-tbody"></tbody></table></div>
+          <div class="tw"><table><thead><tr><th>ID</th><th>Name</th><th>Plan</th><th>Amount</th><th>Due Date</th><th>Paid Date</th><th>Mode</th><th>Status</th><th>Actions</th></tr></thead><tbody id="p-tbody"></tbody></table></div>
         </div>
       </div>
 
-      <!-- MEMBERSHIPS -->
       <div class="sec" id="s-memberships">
-        <div class="plc" id="m-plcards" style="margin-bottom:16px;"></div>
+        <div class="plc" id="m-plcards"></div>
         <div class="g2">
           <div class="card">
             <div class="card-h"><div class="card-t">Plans</div><button class="btn btn-p btn-sm" onclick="openMod('plan')">+ Add Plan</button></div>
             <div class="tw"><table><thead><tr><th>Plan Name</th><th>Duration</th><th>Price</th><th>Members</th><th>Actions</th></tr></thead><tbody id="pl-tbody"></tbody></table></div>
           </div>
           <div class="card">
-            <div class="card-h"><div class="card-t">Renewals Due (&le;30 days)</div></div>
-            <div class="tw"><table><thead><tr><th>Member</th><th>Plan</th><th>Expires</th><th>Days</th></tr></thead><tbody id="rn-tbody"></tbody></table></div>
+            <div class="card-h"><div class="card-t">Renewals Due (≤30 days)</div></div>
+            <div class="tw"><table><thead><tr><th>Member</th><th>Plan</th><th>Expires</th><th>Days Left</th></tr></thead><tbody id="rn-tbody"></tbody></table></div>
           </div>
         </div>
       </div>
 
-      <!-- MEMBERS -->
       <div class="sec" id="s-members">
         <div class="card">
           <div class="card-h"><div class="card-t">Gym Members</div><button class="btn btn-p btn-sm" onclick="openMod('member')">+ Add Member</button></div>
           <div class="srow">
             <input class="sinp" id="m-srch" placeholder="Search name, phone or ID…" oninput="renderMem()"/>
             <div class="fbtns">
-              <button class="fbtn on" data-mf="all" onclick="setF('mem','all',this)">All</button>
-              <button class="fbtn" data-mf="active" onclick="setF('mem','active',this)">Active</button>
-              <button class="fbtn" data-mf="expired" onclick="setF('mem','expired',this)">Expired</button>
+              <button class="fbtn on" data-mf="all"     onclick="setF('mem','all',this)">All</button>
+              <button class="fbtn"    data-mf="active"  onclick="setF('mem','active',this)">Active</button>
+              <button class="fbtn"    data-mf="expired" onclick="setF('mem','expired',this)">Expired</button>
             </div>
           </div>
-          <div class="tw"><table><thead><tr><th>ID</th><th>Name</th><th>Age</th><th>Phone</th><th>Plan</th><th>Join</th><th>Expiry</th><th>Payment</th><th>Status</th><th>Actions</th></tr></thead><tbody id="m-tbody"></tbody></table></div>
+          <div class="tw"><table><thead><tr><th>ID</th><th>Name</th><th>Age</th><th>Phone</th><th>Plan</th><th>Join Date</th><th>Expiry</th><th>Payment</th><th>Status</th><th>Actions</th></tr></thead><tbody id="m-tbody"></tbody></table></div>
         </div>
       </div>
 
-      <!-- EMPLOYEES -->
       <div class="sec" id="s-employees">
         <div class="sgrid" id="e-stats"></div>
         <div class="card">
-          <div class="card-h"><div class="card-t">Employee Directory</div><button class="btn btn-p btn-sm" onclick="openMod('employee')">+ Add Employee</button></div>
+          <div class="card-h"><div class="card-t">Employees</div><button class="btn btn-p btn-sm" onclick="openMod('employee')">+ Add Employee</button></div>
           <div class="srow"><input class="sinp" id="e-srch" placeholder="Search name or role…" oninput="renderEmp()"/></div>
           <div class="tw"><table><thead><tr><th>ID</th><th>Name</th><th>Role</th><th>Phone</th><th>Joined</th><th>Salary</th><th>Last Paid</th><th>Sal. Status</th><th>Actions</th></tr></thead><tbody id="e-tbody"></tbody></table></div>
         </div>
@@ -381,332 +366,547 @@ tbody tr:hover td{background:rgba(255,255,255,0.015);}
 </div>
 
 <!-- MODAL -->
-<div class="mover" id="mover" onclick="if(event.target===this)closeMod()">
+<div class="mover" id="mover">
   <div class="mbox">
     <h2 id="m-title">Add</h2>
     <div id="m-body"></div>
     <div class="mfoot">
       <button class="btn btn-s" onclick="closeMod()">Cancel</button>
-      <button class="btn btn-p" onclick="saveMod()">Save</button>
+      <button class="btn btn-p" id="m-save" onclick="saveMod()">Save</button>
     </div>
   </div>
 </div>
 
 <script>
-// ── STATE ──
-let db,auth,user;
-let D={members:[],payments:[],employees:[],plans:[]};
-let modType='',modId=null;
-let fPay='all',fMem='all';
 
-// ── CONFIG ──
-function doSaveConfig(){
-  const e=document.getElementById('setup-err');
-  e.style.display='none';
-  const cfg={
-    apiKey:document.getElementById('c-apiKey').value.trim(),
-    authDomain:document.getElementById('c-authDomain').value.trim(),
-    projectId:document.getElementById('c-projectId').value.trim(),
-    appId:document.getElementById('c-appId').value.trim(),
-    ejsPub:document.getElementById('c-ejsPub').value.trim(),
-    ejsSvc:document.getElementById('c-ejsSvc').value.trim(),
-    ejsTpl:document.getElementById('c-ejsTpl').value.trim(),
+// ════════════════ STATE ════════════════
+let db, auth, currentUser;
+let D = { members:[], payments:[], employees:[], plans:[] };
+let modType = '', modEditId = null;
+let fPay = 'all', fMem = 'all';
+
+// ════════════════ CONFIG ════════════════
+function doSaveConfig() {
+  const errEl = document.getElementById('setup-err');
+  errEl.style.display = 'none';
+  const cfg = {
+    apiKey:    g('c-apiKey').value.trim(),
+    authDomain:g('c-authDomain').value.trim(),
+    projectId: g('c-projectId').value.trim(),
+    appId:     g('c-appId').value.trim(),
+    ejsPub:    g('c-ejsPub').value.trim(),
+    ejsSvc:    g('c-ejsSvc').value.trim(),
+    ejsTpl:    g('c-ejsTpl').value.trim(),
   };
-  const miss=[];
-  if(!cfg.apiKey)miss.push('API Key');
-  if(!cfg.authDomain)miss.push('Auth Domain');
-  if(!cfg.projectId)miss.push('Project ID');
-  if(!cfg.appId)miss.push('App ID');
-  if(miss.length){e.textContent='❌ Missing: '+miss.join(', ');e.style.display='block';return;}
-  localStorage.setItem('efcgym',JSON.stringify(cfg));
-  boot(cfg);
+  const miss = [];
+  if (!cfg.apiKey)     miss.push('API Key');
+  if (!cfg.authDomain) miss.push('Auth Domain');
+  if (!cfg.projectId)  miss.push('Project ID');
+  if (!cfg.appId)      miss.push('App ID');
+  if (miss.length) { showErr('setup-err', 'Missing: ' + miss.join(', ')); return; }
+  localStorage.setItem('efcgym_v2', JSON.stringify(cfg));
+  bootApp(cfg);
 }
 
-function boot(cfg){
-  document.getElementById('screen-setup').classList.remove('show');
-  try{
-    if(!firebase.apps.length){
-      firebase.initializeApp({apiKey:cfg.apiKey,authDomain:cfg.authDomain,projectId:cfg.projectId,appId:cfg.appId});
+function bootApp(cfg) {
+  show('screen-setup', false);
+  try {
+    if (!firebase.apps.length) {
+      firebase.initializeApp({
+        apiKey: cfg.apiKey, authDomain: cfg.authDomain,
+        projectId: cfg.projectId, appId: cfg.appId
+      });
     }
-    db=firebase.firestore();
-    auth=firebase.auth();
-  }catch(ex){
-    const e=document.getElementById('setup-err');
-    e.textContent='❌ Firebase error: '+ex.message;
-    e.style.display='block';
-    document.getElementById('screen-setup').classList.add('show');
+    db   = firebase.firestore();
+    auth = firebase.auth();
+  } catch(ex) {
+    show('screen-setup', true);
+    showErr('setup-err', 'Firebase error: ' + ex.message);
     return;
   }
-  if(cfg.ejsPub)try{emailjs.init(cfg.ejsPub);}catch(x){}
-  auth.onAuthStateChanged(u=>{
-    if(u){user=u;onLoggedIn(u,false);}
-    else{
-      document.getElementById('screen-app').classList.remove('show');
-      document.getElementById('screen-login').classList.add('show');
-    }
+  if (cfg.ejsPub) { try { emailjs.init(cfg.ejsPub); } catch(x) {} }
+  auth.onAuthStateChanged(user => {
+    if (user) { currentUser = user; onLoggedIn(user, false); }
+    else      { show('screen-app', false); show('screen-login', true); }
   });
-  document.getElementById('t-date').textContent=new Date().toLocaleDateString('en-IN',{weekday:'short',day:'2-digit',month:'short',year:'numeric'});
+  g('t-date').textContent = new Date().toLocaleDateString('en-IN',
+    {weekday:'short', day:'2-digit', month:'short', year:'numeric'});
 }
 
-// ── INIT ──
-(function(){
-  const raw=localStorage.getItem('efcgym');
-  if(!raw){return;}
-  let cfg;try{cfg=JSON.parse(raw);}catch(x){localStorage.removeItem('efcgym');return;}
-  if(!cfg.apiKey||!cfg.projectId||!cfg.authDomain||!cfg.appId){
-    // prefill
-    ['apiKey','authDomain','projectId','appId','ejsPub','ejsSvc','ejsTpl'].forEach(k=>{
-      const el=document.getElementById('c-'+k);if(el&&cfg[k])el.value=cfg[k];
-    });
-    return;
+// ════════════════ AUTH ════════════════
+function doGoogleLogin() {
+  showErr('login-err', '');
+  const provider = new firebase.auth.GoogleAuthProvider();
+  auth.signInWithPopup(provider)
+    .then(r => onLoggedIn(r.user, true))
+    .catch(ex => showErr('login-err', ex.message));
+}
+
+function onLoggedIn(user, isNew) {
+  currentUser = user;
+  show('screen-login', false);
+  show('screen-app',   true);
+  const name = user.displayName || user.email || 'Owner';
+  g('u-name').textContent = name;
+  const ava = g('u-ava');
+  if (user.photoURL) {
+    ava.innerHTML = '<img src="' + user.photoURL + '" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"/>';
+  } else {
+    ava.textContent = name[0].toUpperCase();
+    ava.style.background = 'var(--accent)';
+    ava.style.color = '#fff';
   }
-  boot(cfg);
-})();
+  toast('Welcome, ' + name + '!', 'ok');
+  if (isNew) sendLoginEmail(user);
+  startListeners();
+}
 
-// ── AUTH ──
-function doGoogleLogin(){
-  const errEl=document.getElementById('login-err');
-  errEl.style.display='none';
-  const provider=new firebase.auth.GoogleAuthProvider();
-  auth.signInWithPopup(provider).then(r=>onLoggedIn(r.user,true)).catch(ex=>{
-    errEl.textContent='Login failed: '+ex.message;errEl.style.display='block';
+function doSignOut() {
+  auth.signOut().then(() => { show('screen-app', false); toast('Signed out.', 'info'); });
+}
+
+// ════════════════ EMAIL ════════════════
+function sendLoginEmail(user) {
+  const cfg = JSON.parse(localStorage.getItem('efcgym_v2') || '{}');
+  if (!cfg.ejsPub || !cfg.ejsSvc || !cfg.ejsTpl) return;
+  const t = new Date().toLocaleString('en-IN', {
+    weekday:'long', year:'numeric', month:'long',
+    day:'2-digit', hour:'2-digit', minute:'2-digit', hour12:true
   });
-}
-function onLoggedIn(u,sendEmail){
-  user=u;
-  document.getElementById('screen-login').classList.remove('show');
-  document.getElementById('screen-app').classList.add('show');
-  const n=u.displayName||u.email||'Owner';
-  document.getElementById('u-name').textContent=n;
-  const ava=document.getElementById('u-ava');
-  if(u.photoURL){ava.innerHTML='<img src="'+u.photoURL+'" alt=""/>'}
-  else{document.getElementById('u-ini').textContent=n[0].toUpperCase();}
-  toast('Welcome, '+n+'!','ok');
-  if(sendEmail)sendLoginEmail(u);
-  listenData();
-}
-function doSignOut(){
-  auth.signOut().then(()=>{
-    document.getElementById('screen-app').classList.remove('show');
-    toast('Signed out.','info');
-  });
+  emailjs.send(cfg.ejsSvc, cfg.ejsTpl, {
+    to_email:  user.email,
+    to_name:   user.displayName || 'Admin',
+    login_time: t,
+    gym_name:  'EFC GYM – Najafgarh, Delhi'
+  }).then(() => toast('Login email sent!', 'info')).catch(() => {});
 }
 
-// ── EMAIL ──
-function sendLoginEmail(u){
-  const cfg=JSON.parse(localStorage.getItem('efcgym')||'{}');
-  if(!cfg.ejsPub||!cfg.ejsSvc||!cfg.ejsTpl)return;
-  const t=new Date().toLocaleString('en-IN',{weekday:'long',year:'numeric',month:'long',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:true});
-  emailjs.send(cfg.ejsSvc,cfg.ejsTpl,{to_email:u.email,to_name:u.displayName||'Admin',login_time:t,gym_name:'EFC GYM – Najafgarh, Delhi'})
-    .then(()=>toast('Login email sent!','info')).catch(()=>{});
-}
-
-// ── FIRESTORE ──
-function listenData(){
-  ['members','payments','employees','plans'].forEach(col=>{
-    db.collection(col).orderBy('createdAt','desc').onSnapshot(s=>{
-      D[col]=s.docs.map(d=>({id:d.id,...d.data()}));
-      renderAll();
-    },()=>{
-      // fallback without order
-      db.collection(col).onSnapshot(s=>{D[col]=s.docs.map(d=>({id:d.id,...d.data()}));renderAll();});
-    });
+// ════════════════ FIRESTORE LISTENERS ════════════════
+function startListeners() {
+  ['members','payments','employees','plans'].forEach(col => {
+    db.collection(col).onSnapshot(
+      snap => {
+        D[col] = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+        renderAll();
+      },
+      err => toast('DB error (' + col + '): ' + err.message, 'err')
+    );
   });
 }
 
-// ── NAV ──
-document.querySelectorAll('.nbtn').forEach(btn=>{
-  btn.addEventListener('click',()=>{
-    document.querySelectorAll('.nbtn').forEach(b=>b.classList.remove('on'));
+// ════════════════ NAV ════════════════
+document.querySelectorAll('.nbtn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.nbtn').forEach(b => b.classList.remove('on'));
     btn.classList.add('on');
-    const t=btn.dataset.t;
-    document.querySelectorAll('.sec').forEach(s=>s.classList.remove('on'));
-    document.getElementById('s-'+t).classList.add('on');
-    const tts={dashboard:'Dashboard',payments:'Payments',memberships:'Memberships',members:'Gym Members',employees:'Employees'};
-    document.getElementById('page-title').textContent=tts[t]||t;
+    const t = btn.dataset.t;
+    document.querySelectorAll('.sec').forEach(s => s.classList.remove('on'));
+    g('s-' + t).classList.add('on');
+    const names = {dashboard:'Dashboard',payments:'Payments',memberships:'Memberships',members:'Gym Members',employees:'Employees'};
+    g('page-title').textContent = names[t] || t;
   });
 });
 
-// ── UTILS ──
-const fd=d=>d?new Date(d).toLocaleDateString('en-IN',{day:'2-digit',month:'short',year:'numeric'}):'—';
-const dl=e=>Math.ceil((new Date(e)-new Date())/864e5);
-const mSt=m=>m.expiry&&new Date(m.expiry)>new Date()?'active':'expired';
-const pbadge=s=>({paid:'<span class="b bg">Paid</span>',pending:'<span class="b by">Pending</span>',overdue:'<span class="b br">Overdue</span>'}[s]||'<span class="b bx">—</span>');
-const mbadge=s=>s==='active'?'<span class="b bg">Active</span>':'<span class="b br">Expired</span>';
-const rbadge=r=>{const m={trainer:'rt',manager:'rm',reception:'rr',cleaner:'rc',security:'rs'};return`<span class="role ${m[r]||'rt'}">${r?r[0].toUpperCase()+r.slice(1):'—'}</span>`;};
+// ════════════════ RENDER HELPERS ════════════════
+const g = id => document.getElementById(id);
+const fd = d => d ? new Date(d).toLocaleDateString('en-IN',{day:'2-digit',month:'short',year:'numeric'}) : '—';
+const daysLeft = exp => Math.ceil((new Date(exp) - new Date()) / 86400000);
+const memStatus = m => (m.expiry && new Date(m.expiry) > new Date()) ? 'active' : 'expired';
 
-function renderAll(){renderDash();renderPay();renderMships();renderMem();renderEmp();}
+function pbadge(s) {
+  return {
+    paid:    '<span class="b bg">Paid</span>',
+    pending: '<span class="b by">Pending</span>',
+    overdue: '<span class="b br">Overdue</span>'
+  }[s] || '<span class="b bx">—</span>';
+}
+function mbadge(s) { return s === 'active' ? '<span class="b bg">Active</span>' : '<span class="b br">Expired</span>'; }
+function rbadge(r) {
+  const m = {trainer:'rt',manager:'rm',reception:'rr',cleaner:'rc',security:'rs'};
+  return '<span class="role ' + (m[r]||'rt') + '">' + (r ? r[0].toUpperCase()+r.slice(1) : '—') + '</span>';
+}
 
-// ── DASHBOARD ──
-function renderDash(){
-  const tot=D.members.length,act=D.members.filter(m=>mSt(m)==='active').length;
-  const emp=D.employees.length;
-  const pend=D.payments.filter(p=>p.status==='pending').length,ovr=D.payments.filter(p=>p.status==='overdue').length;
-  const rev=D.payments.filter(p=>p.status==='paid').reduce((a,p)=>a+(+p.amount||0),0);
-  const exp=D.members.filter(m=>{const d=dl(m.expiry);return d>=0&&d<=30;});
-  document.getElementById('d-stats').innerHTML=`
+function renderAll() {
+  renderDash(); renderPay(); renderMships(); renderMem(); renderEmp();
+}
+
+// ════════════════ DASHBOARD ════════════════
+function renderDash() {
+  const tot = D.members.length;
+  const act = D.members.filter(m => memStatus(m) === 'active').length;
+  const emp = D.employees.length;
+  const pnd = D.payments.filter(p => p.status === 'pending').length;
+  const ovr = D.payments.filter(p => p.status === 'overdue').length;
+  const rev = D.payments.filter(p => p.status === 'paid').reduce((a,p) => a + (+p.amount||0), 0);
+  const exp = D.members.filter(m => { const d = daysLeft(m.expiry); return d >= 0 && d <= 30; });
+
+  g('d-stats').innerHTML = `
     <div class="sc" style="--c:var(--accent)"><div class="sc-lbl">Total Members</div><div class="sc-val">${tot}</div><div class="sc-hint">${act} active</div></div>
-    <div class="sc" style="--c:var(--gold)"><div class="sc-lbl">Revenue Collected</div><div class="sc-val">₹${rev.toLocaleString()}</div><div class="sc-hint">All payments</div></div>
-    <div class="sc" style="--c:var(--green)"><div class="sc-lbl">Active Members</div><div class="sc-val">${act}</div><div class="sc-hint">${tot>0?Math.round(act/tot*100):0}% retention</div></div>
-    <div class="sc" style="--c:var(--red)"><div class="sc-lbl">Pending / Overdue</div><div class="sc-val">${pend+ovr}</div><div class="sc-hint">${ovr} overdue</div></div>
+    <div class="sc" style="--c:var(--gold)"><div class="sc-lbl">Revenue Collected</div><div class="sc-val">&#8377;${rev.toLocaleString()}</div><div class="sc-hint">All time</div></div>
+    <div class="sc" style="--c:var(--green)"><div class="sc-lbl">Active Members</div><div class="sc-val">${act}</div><div class="sc-hint">${tot > 0 ? Math.round(act/tot*100) : 0}% retention</div></div>
+    <div class="sc" style="--c:var(--red)"><div class="sc-lbl">Pending / Overdue</div><div class="sc-val">${pnd + ovr}</div><div class="sc-hint">${ovr} overdue</div></div>
     <div class="sc" style="--c:var(--blue)"><div class="sc-lbl">Employees</div><div class="sc-val">${emp}</div><div class="sc-hint">Total staff</div></div>
     <div class="sc" style="--c:var(--purple)"><div class="sc-lbl">Expiring (30d)</div><div class="sc-val">${exp.length}</div><div class="sc-hint">Need renewal</div></div>`;
 
-  const paid=D.payments.filter(p=>p.status==='paid').reduce((a,p)=>a+(+p.amount||0),0);
-  const pn=D.payments.filter(p=>p.status==='pending').reduce((a,p)=>a+(+p.amount||0),0);
-  const ov=D.payments.filter(p=>p.status==='overdue').reduce((a,p)=>a+(+p.amount||0),0);
-  const tt=paid+pn+ov||1;
-  document.getElementById('d-rev').innerHTML=`
-    <div class="rbar"><div class="rlbl">Collected</div><div class="rtrk"><div class="rfll" style="width:${Math.round(paid/tt*100)}%;background:var(--green)"></div></div><div class="rval" style="color:var(--green)">₹${paid.toLocaleString()}</div></div>
-    <div class="rbar"><div class="rlbl">Pending</div><div class="rtrk"><div class="rfll" style="width:${Math.round(pn/tt*100)}%;background:var(--gold)"></div></div><div class="rval" style="color:var(--gold)">₹${pn.toLocaleString()}</div></div>
-    <div class="rbar"><div class="rlbl">Overdue</div><div class="rtrk"><div class="rfll" style="width:${Math.round(ov/tt*100)}%;background:var(--red)"></div></div><div class="rval" style="color:var(--red)">₹${ov.toLocaleString()}</div></div>`;
+  const paid = D.payments.filter(p=>p.status==='paid').reduce((a,p)=>a+(+p.amount||0),0);
+  const pn   = D.payments.filter(p=>p.status==='pending').reduce((a,p)=>a+(+p.amount||0),0);
+  const ov   = D.payments.filter(p=>p.status==='overdue').reduce((a,p)=>a+(+p.amount||0),0);
+  const tt   = paid + pn + ov || 1;
+  g('d-rev').innerHTML = `
+    <div class="rbar"><div class="rlbl">Collected</div><div class="rtrk"><div class="rfll" style="width:${Math.round(paid/tt*100)}%;background:var(--green)"></div></div><div class="rval" style="color:var(--green)">&#8377;${paid.toLocaleString()}</div></div>
+    <div class="rbar"><div class="rlbl">Pending</div><div class="rtrk"><div class="rfll" style="width:${Math.round(pn/tt*100)}%;background:var(--gold)"></div></div><div class="rval" style="color:var(--gold)">&#8377;${pn.toLocaleString()}</div></div>
+    <div class="rbar"><div class="rlbl">Overdue</div><div class="rtrk"><div class="rfll" style="width:${Math.round(ov/tt*100)}%;background:var(--red)"></div></div><div class="rval" style="color:var(--red)">&#8377;${ov.toLocaleString()}</div></div>`;
 
-  const pc={};D.members.forEach(m=>{pc[m.plan]=(pc[m.plan]||0)+1;});
-  document.getElementById('d-plans').innerHTML=D.plans.length===0?'<div class="empty">No plans added yet</div>':
-    D.plans.map(p=>`<div style="margin-bottom:11px"><div style="display:flex;justify-content:space-between;margin-bottom:3px"><span style="font-size:12.5px">${p.name}</span><span style="font-size:12px;color:var(--muted)">${pc[p.name]||0} members</span></div><div class="pbar"><div class="pfll" style="width:${tot>0?Math.round((pc[p.name]||0)/tot*100):0}%;background:var(--accent)"></div></div></div>`).join('');
+  const pc = {};
+  D.members.forEach(m => { pc[m.plan] = (pc[m.plan]||0) + 1; });
+  g('d-plans').innerHTML = D.plans.length === 0
+    ? '<div class="empty">No plans yet — go to Memberships to add plans.</div>'
+    : D.plans.map(p => `
+        <div style="margin-bottom:12px">
+          <div style="display:flex;justify-content:space-between;margin-bottom:3px">
+            <span style="font-size:12.5px">${p.name}</span>
+            <span style="font-size:12px;color:var(--muted)">${pc[p.name]||0} members</span>
+          </div>
+          <div class="pbar"><div class="pfll" style="width:${tot>0?Math.round((pc[p.name]||0)/tot*100):0}%;background:var(--accent)"></div></div>
+        </div>`).join('');
 
-  const rec=[...D.payments].sort((a,b)=>new Date(b.createdAt||0)-new Date(a.createdAt||0)).slice(0,5);
-  document.getElementById('d-recent').innerHTML=rec.length===0?'<div class="empty">No payments yet</div>':
-    rec.map(p=>`<div class="aitem"><div class="adot" style="background:${p.status==='paid'?'var(--green)':p.status==='overdue'?'var(--red)':'var(--gold)'}"></div><div><div class="atxt">${p.memberName||'—'} — ₹${(+p.amount||0).toLocaleString()}</div><div class="atm">${p.plan||'—'} · ${pbadge(p.status)}</div></div></div>`).join('');
+  const recent = [...D.payments].sort((a,b) => (b.createdAt||'') > (a.createdAt||'') ? 1 : -1).slice(0, 5);
+  g('d-recent').innerHTML = recent.length === 0
+    ? '<div class="empty">No payments recorded yet.</div>'
+    : recent.map(p => `
+        <div class="aitem">
+          <div class="adot" style="background:${p.status==='paid'?'var(--green)':p.status==='overdue'?'var(--red)':'var(--gold)'}"></div>
+          <div><div class="atxt">${p.memberName||'—'} — &#8377;${(+p.amount||0).toLocaleString()}</div>
+          <div class="atm">${p.plan||'—'} · ${pbadge(p.status)}</div></div>
+        </div>`).join('');
 
-  document.getElementById('d-expiry').innerHTML=exp.length===0?'<div class="empty">No memberships expiring soon</div>':
-    exp.sort((a,b)=>dl(a.expiry)-dl(b.expiry)).slice(0,6).map(m=>`<div class="aitem"><div class="adot" style="background:${dl(m.expiry)<=7?'var(--red)':'var(--gold)'}"></div><div><div class="atxt">${m.name}</div><div class="atm">${m.plan||'—'} · Expires ${fd(m.expiry)} (${dl(m.expiry)}d)</div></div></div>`).join('');
+  g('d-expiry').innerHTML = exp.length === 0
+    ? '<div class="empty">No memberships expiring in 30 days.</div>'
+    : exp.sort((a,b) => daysLeft(a.expiry) - daysLeft(b.expiry)).slice(0, 6).map(m => `
+        <div class="aitem">
+          <div class="adot" style="background:${daysLeft(m.expiry)<=7?'var(--red)':'var(--gold)'}"></div>
+          <div><div class="atxt">${m.name}</div>
+          <div class="atm">${m.plan||'—'} · Expires ${fd(m.expiry)} (${daysLeft(m.expiry)}d)</div></div>
+        </div>`).join('');
 }
 
-// ── PAYMENTS ──
-function renderPay(){
-  const q=(document.getElementById('p-srch')||{}).value?.toLowerCase()||'';
-  const rows=D.payments.filter(p=>(fPay==='all'||p.status===fPay)&&(!q||(p.memberName||'').toLowerCase().includes(q)||(p.memberId||'').toLowerCase().includes(q)));
-  const paid=D.payments.filter(p=>p.status==='paid').reduce((a,p)=>a+(+p.amount||0),0);
-  const pnd=D.payments.filter(p=>p.status==='pending').reduce((a,p)=>a+(+p.amount||0),0);
-  const ovr=D.payments.filter(p=>p.status==='overdue').reduce((a,p)=>a+(+p.amount||0),0);
-  document.getElementById('p-stats').innerHTML=`
-    <div class="sc" style="--c:var(--green)"><div class="sc-lbl">Collected</div><div class="sc-val">₹${paid.toLocaleString()}</div></div>
-    <div class="sc" style="--c:var(--gold)"><div class="sc-lbl">Pending</div><div class="sc-val">₹${pnd.toLocaleString()}</div></div>
-    <div class="sc" style="--c:var(--red)"><div class="sc-lbl">Overdue</div><div class="sc-val">₹${ovr.toLocaleString()}</div></div>`;
-  document.getElementById('p-tbody').innerHTML=rows.length===0?`<tr><td colspan="9"><div class="empty">No records. Click "+ Add Payment".</div></td></tr>`:
-    rows.map(p=>`<tr><td style="color:var(--muted)">${p.memberId||'—'}</td><td style="font-weight:500">${p.memberName||'—'}</td><td>${p.plan||'—'}</td><td>₹${(+p.amount||0).toLocaleString()}</td><td>${fd(p.dueDate)}</td><td>${fd(p.paidDate)}</td><td>${p.payMode||'—'}</td><td>${pbadge(p.status)}</td><td style="white-space:nowrap"><button class="btn btn-s btn-sm" onclick="openMod('payment','${p.id}')">Edit</button> <button class="btn btn-d btn-sm" onclick="delDoc('payments','${p.id}')">Del</button></td></tr>`).join('');
+// ════════════════ PAYMENTS ════════════════
+function renderPay() {
+  const q = (g('p-srch') ? g('p-srch').value : '').toLowerCase();
+  const rows = D.payments.filter(p =>
+    (fPay === 'all' || p.status === fPay) &&
+    (!q || (p.memberName||'').toLowerCase().includes(q) || (p.memberId||'').toLowerCase().includes(q))
+  );
+  const paid = D.payments.filter(p=>p.status==='paid').reduce((a,p)=>a+(+p.amount||0),0);
+  const pnd  = D.payments.filter(p=>p.status==='pending').reduce((a,p)=>a+(+p.amount||0),0);
+  const ovr  = D.payments.filter(p=>p.status==='overdue').reduce((a,p)=>a+(+p.amount||0),0);
+  g('p-stats').innerHTML = `
+    <div class="sc" style="--c:var(--green)"><div class="sc-lbl">Collected</div><div class="sc-val">&#8377;${paid.toLocaleString()}</div></div>
+    <div class="sc" style="--c:var(--gold)"><div class="sc-lbl">Pending</div><div class="sc-val">&#8377;${pnd.toLocaleString()}</div></div>
+    <div class="sc" style="--c:var(--red)"><div class="sc-lbl">Overdue</div><div class="sc-val">&#8377;${ovr.toLocaleString()}</div></div>`;
+  g('p-tbody').innerHTML = rows.length === 0
+    ? '<tr><td colspan="9"><div class="empty">No records. Click "+ Add Payment" to add one.</div></td></tr>'
+    : rows.map(p => `<tr>
+        <td style="color:var(--muted)">${p.memberId||'—'}</td>
+        <td style="font-weight:500">${p.memberName||'—'}</td>
+        <td>${p.plan||'—'}</td>
+        <td>&#8377;${(+p.amount||0).toLocaleString()}</td>
+        <td>${fd(p.dueDate)}</td><td>${fd(p.paidDate)}</td>
+        <td>${p.payMode||'—'}</td><td>${pbadge(p.status)}</td>
+        <td style="white-space:nowrap">
+          <button class="btn btn-s btn-sm" onclick="openMod('payment','${p.id}')">Edit</button>
+          <button class="btn btn-d btn-sm" onclick="delDoc('payments','${p.id}')">Del</button>
+        </td></tr>`).join('');
 }
 
-// ── MEMBERSHIPS ──
-function renderMships(){
-  const pc={};D.members.forEach(m=>{pc[m.plan]=(pc[m.plan]||0)+1;});
-  document.getElementById('m-plcards').innerHTML=D.plans.length===0?'<div style="color:var(--muted);font-size:13px">No plans yet. Click "+ Add Plan".</div>':
-    D.plans.map(p=>`<div class="plcard"><div class="plcard-n">${p.name}</div><div class="plcard-v" style="color:var(--accent2)">${pc[p.name]||0}</div><div class="plcard-p">₹${(+p.price||0).toLocaleString()} / ${p.duration||'month'}</div></div>`).join('');
-  document.getElementById('pl-tbody').innerHTML=D.plans.length===0?`<tr><td colspan="5"><div class="empty">No plans configured.</div></td></tr>`:
-    D.plans.map(p=>`<tr><td style="font-weight:500">${p.name}</td><td>${p.duration||'—'}</td><td>₹${(+p.price||0).toLocaleString()}</td><td>${pc[p.name]||0}</td><td><button class="btn btn-s btn-sm" onclick="openMod('plan','${p.id}')">Edit</button> <button class="btn btn-d btn-sm" onclick="delDoc('plans','${p.id}')">Del</button></td></tr>`).join('');
-  const ren=D.members.filter(m=>{const d=dl(m.expiry);return d>=0&&d<=30;}).sort((a,b)=>dl(a.expiry)-dl(b.expiry));
-  document.getElementById('rn-tbody').innerHTML=ren.length===0?`<tr><td colspan="4"><div class="empty">No renewals due soon.</div></td></tr>`:
-    ren.map(m=>{const d=dl(m.expiry);return`<tr><td>${m.name}</td><td>${m.plan||'—'}</td><td>${fd(m.expiry)}</td><td><span class="b ${d<=7?'br':'by'}">${d}d</span></td></tr>`;}).join('');
+// ════════════════ MEMBERSHIPS ════════════════
+function renderMships() {
+  const pc = {};
+  D.members.forEach(m => { pc[m.plan] = (pc[m.plan]||0) + 1; });
+  g('m-plcards').innerHTML = D.plans.length === 0
+    ? '<div style="color:var(--muted);font-size:13px;padding:8px 0">No plans yet. Click "+ Add Plan" to create your first plan.</div>'
+    : D.plans.map(p => `
+        <div class="plcard">
+          <div class="plcard-n">${p.name}</div>
+          <div class="plcard-v" style="color:var(--accent2)">${pc[p.name]||0}</div>
+          <div class="plcard-p">&#8377;${(+p.price||0).toLocaleString()} / ${p.duration||'month'}</div>
+        </div>`).join('');
+
+  g('pl-tbody').innerHTML = D.plans.length === 0
+    ? '<tr><td colspan="5"><div class="empty">No plans configured.</div></td></tr>'
+    : D.plans.map(p => `<tr>
+        <td style="font-weight:500">${p.name}</td>
+        <td>${p.duration||'—'}</td>
+        <td>&#8377;${(+p.price||0).toLocaleString()}</td>
+        <td>${pc[p.name]||0}</td>
+        <td style="white-space:nowrap">
+          <button class="btn btn-s btn-sm" onclick="openMod('plan','${p.id}')">Edit</button>
+          <button class="btn btn-d btn-sm" onclick="delDoc('plans','${p.id}')">Del</button>
+        </td></tr>`).join('');
+
+  const ren = D.members
+    .filter(m => { const d = daysLeft(m.expiry); return d >= 0 && d <= 30; })
+    .sort((a,b) => daysLeft(a.expiry) - daysLeft(b.expiry));
+  g('rn-tbody').innerHTML = ren.length === 0
+    ? '<tr><td colspan="4"><div class="empty">No renewals due soon.</div></td></tr>'
+    : ren.map(m => { const d = daysLeft(m.expiry); return `<tr>
+        <td>${m.name}</td><td>${m.plan||'—'}</td><td>${fd(m.expiry)}</td>
+        <td><span class="b ${d<=7?'br':'by'}">${d}d</span></td></tr>`; }).join('');
 }
 
-// ── MEMBERS ──
-function renderMem(){
-  const q=(document.getElementById('m-srch')||{}).value?.toLowerCase()||'';
-  const rows=D.members.filter(m=>{const st=mSt(m);return(fMem==='all'||st===fMem)&&(!q||(m.name||'').toLowerCase().includes(q)||(m.phone||'').includes(q)||(m.memberId||'').toLowerCase().includes(q));});
-  document.getElementById('m-tbody').innerHTML=rows.length===0?`<tr><td colspan="10"><div class="empty">No members. Click "+ Add Member".</div></td></tr>`:
-    rows.map(m=>`<tr><td style="color:var(--muted)">${m.memberId||'—'}</td><td style="font-weight:500">${m.name||'—'}</td><td>${m.age||'—'}</td><td>${m.phone||'—'}</td><td>${m.plan||'—'}</td><td>${fd(m.joinDate)}</td><td>${fd(m.expiry)}</td><td>${pbadge(m.paymentStatus)}</td><td>${mbadge(mSt(m))}</td><td style="white-space:nowrap"><button class="btn btn-s btn-sm" onclick="openMod('member','${m.id}')">Edit</button> <button class="btn btn-d btn-sm" onclick="delDoc('members','${m.id}')">Del</button></td></tr>`).join('');
+// ════════════════ MEMBERS ════════════════
+function renderMem() {
+  const q = (g('m-srch') ? g('m-srch').value : '').toLowerCase();
+  const rows = D.members.filter(m => {
+    const st = memStatus(m);
+    return (fMem === 'all' || st === fMem) &&
+      (!q || (m.name||'').toLowerCase().includes(q) ||
+             (m.phone||'').includes(q) ||
+             (m.memberId||'').toLowerCase().includes(q));
+  });
+  g('m-tbody').innerHTML = rows.length === 0
+    ? '<tr><td colspan="10"><div class="empty">No members yet. Click "+ Add Member" to get started.</div></td></tr>'
+    : rows.map(m => `<tr>
+        <td style="color:var(--muted)">${m.memberId||'—'}</td>
+        <td style="font-weight:500">${m.name||'—'}</td>
+        <td>${m.age||'—'}</td><td>${m.phone||'—'}</td>
+        <td>${m.plan||'—'}</td><td>${fd(m.joinDate)}</td>
+        <td>${fd(m.expiry)}</td><td>${pbadge(m.paymentStatus)}</td>
+        <td>${mbadge(memStatus(m))}</td>
+        <td style="white-space:nowrap">
+          <button class="btn btn-s btn-sm" onclick="openMod('member','${m.id}')">Edit</button>
+          <button class="btn btn-d btn-sm" onclick="delDoc('members','${m.id}')">Del</button>
+        </td></tr>`).join('');
 }
 
-// ── EMPLOYEES ──
-function renderEmp(){
-  const q=(document.getElementById('e-srch')||{}).value?.toLowerCase()||'';
-  const rows=D.employees.filter(e=>!q||(e.name||'').toLowerCase().includes(q)||(e.role||'').toLowerCase().includes(q));
-  const roles=['trainer','manager','reception','cleaner','security'];
-  const cols=['var(--accent)','var(--gold)','var(--blue)','var(--green)','var(--purple)'];
-  document.getElementById('e-stats').innerHTML=roles.map((r,i)=>`<div class="sc" style="--c:${cols[i]}"><div class="sc-lbl">${r[0].toUpperCase()+r.slice(1)}s</div><div class="sc-val">${D.employees.filter(e=>e.role===r).length}</div></div>`).join('');
-  document.getElementById('e-tbody').innerHTML=rows.length===0?`<tr><td colspan="9"><div class="empty">No employees. Click "+ Add Employee".</div></td></tr>`:
-    rows.map(e=>`<tr><td style="color:var(--muted)">${e.empId||'—'}</td><td style="font-weight:500">${e.name||'—'}</td><td>${rbadge(e.role)}</td><td>${e.phone||'—'}</td><td>${fd(e.joinDate)}</td><td>₹${(+e.salary||0).toLocaleString()}</td><td>${fd(e.lastPaid)}</td><td>${pbadge(e.salaryStatus||'pending')}</td><td style="white-space:nowrap"><button class="btn btn-s btn-sm" onclick="openMod('employee','${e.id}')">Edit</button> <button class="btn btn-d btn-sm" onclick="delDoc('employees','${e.id}')">Del</button></td></tr>`).join('');
+// ════════════════ EMPLOYEES ════════════════
+function renderEmp() {
+  const q = (g('e-srch') ? g('e-srch').value : '').toLowerCase();
+  const rows = D.employees.filter(e =>
+    !q || (e.name||'').toLowerCase().includes(q) || (e.role||'').toLowerCase().includes(q)
+  );
+  const roles = ['trainer','manager','reception','cleaner','security'];
+  const cols  = ['var(--accent)','var(--gold)','var(--blue)','var(--green)','var(--purple)'];
+  g('e-stats').innerHTML = roles.map((r,i) => `
+    <div class="sc" style="--c:${cols[i]}">
+      <div class="sc-lbl">${r[0].toUpperCase()+r.slice(1)}s</div>
+      <div class="sc-val">${D.employees.filter(e => e.role === r).length}</div>
+    </div>`).join('');
+  g('e-tbody').innerHTML = rows.length === 0
+    ? '<tr><td colspan="9"><div class="empty">No employees yet. Click "+ Add Employee".</div></td></tr>'
+    : rows.map(e => `<tr>
+        <td style="color:var(--muted)">${e.empId||'—'}</td>
+        <td style="font-weight:500">${e.name||'—'}</td>
+        <td>${rbadge(e.role)}</td><td>${e.phone||'—'}</td>
+        <td>${fd(e.joinDate)}</td>
+        <td>&#8377;${(+e.salary||0).toLocaleString()}</td>
+        <td>${fd(e.lastPaid)}</td><td>${pbadge(e.salaryStatus||'pending')}</td>
+        <td style="white-space:nowrap">
+          <button class="btn btn-s btn-sm" onclick="openMod('employee','${e.id}')">Edit</button>
+          <button class="btn btn-d btn-sm" onclick="delDoc('employees','${e.id}')">Del</button>
+        </td></tr>`).join('');
 }
 
-// ── FILTERS ──
-function setF(type,val,btn){
-  if(type==='pay'){fPay=val;document.querySelectorAll('[data-pf]').forEach(b=>b.classList.remove('on'));btn.classList.add('on');renderPay();}
-  else{fMem=val;document.querySelectorAll('[data-mf]').forEach(b=>b.classList.remove('on'));btn.classList.add('on');renderMem();}
+// ════════════════ FILTERS ════════════════
+function setF(type, val, btn) {
+  if (type === 'pay') {
+    fPay = val;
+    document.querySelectorAll('[data-pf]').forEach(b => b.classList.remove('on'));
+    btn.classList.add('on');
+    renderPay();
+  } else {
+    fMem = val;
+    document.querySelectorAll('[data-mf]').forEach(b => b.classList.remove('on'));
+    btn.classList.add('on');
+    renderMem();
+  }
 }
 
-// ── MODAL ──
-const FORMS={
-  member:{title:'Member',col:'members',fields:[
-    {id:'memberId',l:'Member ID',t:'text',p:'e.g. GYM001'},
-    {id:'name',l:'Full Name',t:'text',p:''},
-    {id:'age',l:'Age',t:'number',p:''},
-    {id:'phone',l:'Phone',t:'tel',p:'10-digit'},
-    {id:'plan',l:'Plan',t:'plan'},
-    {id:'joinDate',l:'Join Date',t:'date',p:''},
-    {id:'expiry',l:'Expiry Date',t:'date',p:''},
-    {id:'paymentStatus',l:'Payment Status',t:'sel',o:['paid','pending','overdue']},
-    {id:'notes',l:'Notes',t:'text',p:'Optional'},
+// ════════════════ MODAL ════════════════
+const FORMS = {
+  member: { title:'Member', col:'members', fields:[
+    {id:'memberId',    l:'Member ID',       t:'text',   p:'e.g. GYM001'},
+    {id:'name',        l:'Full Name',        t:'text',   p:'Full name'},
+    {id:'age',         l:'Age',              t:'number', p:'e.g. 25'},
+    {id:'phone',       l:'Phone Number',     t:'tel',    p:'10-digit'},
+    {id:'plan',        l:'Plan',             t:'plan'},
+    {id:'joinDate',    l:'Join Date',        t:'date',   p:''},
+    {id:'expiry',      l:'Expiry Date',      t:'date',   p:''},
+    {id:'paymentStatus',l:'Payment Status',  t:'sel',    o:['paid','pending','overdue']},
+    {id:'notes',       l:'Notes',            t:'text',   p:'Optional'},
   ]},
-  payment:{title:'Payment',col:'payments',fields:[
-    {id:'memberId',l:'Member ID',t:'text',p:'e.g. GYM001'},
-    {id:'memberName',l:'Member Name',t:'text',p:''},
-    {id:'plan',l:'Plan',t:'plan'},
-    {id:'amount',l:'Amount (₹)',t:'number',p:''},
-    {id:'dueDate',l:'Due Date',t:'date',p:''},
-    {id:'paidDate',l:'Paid Date',t:'date',p:''},
-    {id:'payMode',l:'Mode',t:'sel',o:['UPI','Cash','Card','Bank Transfer','Cheque']},
-    {id:'status',l:'Status',t:'sel',o:['paid','pending','overdue']},
+  payment: { title:'Payment', col:'payments', fields:[
+    {id:'memberId',   l:'Member ID',      t:'text',   p:'e.g. GYM001'},
+    {id:'memberName', l:'Member Name',    t:'text',   p:'Full name'},
+    {id:'plan',       l:'Plan',           t:'plan'},
+    {id:'amount',     l:'Amount (₹)',     t:'number', p:'e.g. 1200'},
+    {id:'dueDate',    l:'Due Date',       t:'date',   p:''},
+    {id:'paidDate',   l:'Paid Date',      t:'date',   p:''},
+    {id:'payMode',    l:'Payment Mode',   t:'sel',    o:['UPI','Cash','Card','Bank Transfer','Cheque']},
+    {id:'status',     l:'Status',         t:'sel',    o:['paid','pending','overdue']},
   ]},
-  employee:{title:'Employee',col:'employees',fields:[
-    {id:'empId',l:'Employee ID',t:'text',p:'e.g. EMP001'},
-    {id:'name',l:'Full Name',t:'text',p:''},
-    {id:'role',l:'Role',t:'sel',o:['trainer','manager','reception','cleaner','security']},
-    {id:'phone',l:'Phone',t:'tel',p:''},
-    {id:'joinDate',l:'Join Date',t:'date',p:''},
-    {id:'salary',l:'Monthly Salary (₹)',t:'number',p:''},
-    {id:'lastPaid',l:'Last Paid Date',t:'date',p:''},
-    {id:'salaryStatus',l:'Salary Status',t:'sel',o:['paid','pending','overdue']},
+  employee: { title:'Employee', col:'employees', fields:[
+    {id:'empId',       l:'Employee ID',   t:'text',   p:'e.g. EMP001'},
+    {id:'name',        l:'Full Name',     t:'text',   p:'Full name'},
+    {id:'role',        l:'Role',          t:'sel',    o:['trainer','manager','reception','cleaner','security']},
+    {id:'phone',       l:'Phone Number',  t:'tel',    p:'10-digit'},
+    {id:'joinDate',    l:'Join Date',     t:'date',   p:''},
+    {id:'salary',      l:'Monthly Salary (₹)', t:'number', p:'e.g. 15000'},
+    {id:'lastPaid',    l:'Last Paid Date',t:'date',   p:''},
+    {id:'salaryStatus',l:'Salary Status', t:'sel',    o:['paid','pending','overdue']},
   ]},
-  plan:{title:'Membership Plan',col:'plans',fields:[
-    {id:'name',l:'Plan Name',t:'text',p:'e.g. Monthly'},
-    {id:'duration',l:'Duration',t:'text',p:'e.g. 1 Month'},
-    {id:'price',l:'Price (₹)',t:'number',p:''},
+  plan: { title:'Membership Plan', col:'plans', fields:[
+    {id:'name',     l:'Plan Name', t:'text',   p:'e.g. Monthly'},
+    {id:'duration', l:'Duration',  t:'text',   p:'e.g. 1 Month'},
+    {id:'price',    l:'Price (₹)', t:'number', p:'e.g. 1200'},
   ]},
 };
 
-function openMod(type,editId=null){
-  modType=type;modId=editId;
-  const form=FORMS[type];
-  const col=form.col;
-  const rec=editId?D[col].find(r=>r.id===editId):null;
-  document.getElementById('m-title')=(editId?'Edit ':'Add ')+form.title;
-  document.getElementById('m-title').textContent=(editId?'Edit ':'Add ')+form.title;
-  document.getElementById('m-body').innerHTML=`<div class="fgrid c2">${form.fields.map(f=>{
-    const v=rec?.[f.id]||'';
-    if(f.t==='sel')return`<div class="fg"><label class="fl">${f.l}</label><select class="fs" id="mf-${f.id}">${f.o.map(o=>`<option value="${o}"${v===o?' selected':''}>${o[0].toUpperCase()+o.slice(1)}</option>`).join('')}</select></div>`;
-    if(f.t==='plan'){const opts=D.plans.map(p=>p.name);return`<div class="fg"><label class="fl">${f.l}</label><select class="fs" id="mf-${f.id}"><option value="">— Select —</option>${opts.map(o=>`<option value="${o}"${v===o?' selected':''}>${o}</option>`).join('')}${v&&!opts.includes(v)?`<option value="${v}" selected>${v}</option>`:''}</select></div>`;}
-    return`<div class="fg"><label class="fl">${f.l}</label><input class="fi" id="mf-${f.id}" type="${f.t}" placeholder="${f.p||''}" value="${v}"/></div>`;
-  }).join('')}</div>`;
-  document.getElementById('mover').classList.add('open');
-}
-function closeMod(){document.getElementById('mover').classList.remove('open');modType='';modId=null;}
-async function saveMod(){
-  const form=FORMS[modType];if(!form)return;
-  const data={};
-  form.fields.forEach(f=>{const el=document.getElementById('mf-'+f.id);if(el)data[f.id]=el.value.trim();});
-  data.updatedAt=new Date().toISOString();
-  const col=form.col;
-  try{
-    if(modId){await db.collection(col).doc(modId).update(data);toast('Updated!','ok');}
-    else{data.createdAt=new Date().toISOString();await db.collection(col).add(data);toast('Added!','ok');}
-    closeMod();
-  }catch(ex){toast('Error: '+ex.message,'err');}
-}
-async function delDoc(col,id){
-  if(!confirm('Delete this record permanently?'))return;
-  try{await db.collection(col).doc(id).delete();toast('Deleted.','info');}
-  catch(ex){toast('Error: '+ex.message,'err');}
+function openMod(type, editId) {
+  editId = editId || null;
+  modType   = type;
+  modEditId = editId;
+  const form = FORMS[type];
+  if (!form) { toast('Unknown form type: ' + type, 'err'); return; }
+  const col = form.col;
+  const rec = editId ? D[col].find(r => r.id === editId) : null;
+  g('m-title').textContent = (editId ? 'Edit ' : 'Add ') + form.title;
+
+  const planOpts = D.plans.map(p => p.name);
+
+  const html = form.fields.map(f => {
+    const v = rec ? (rec[f.id] || '') : '';
+    let inp = '';
+    if (f.t === 'sel') {
+      inp = '<select class="fs" id="mf-' + f.id + '">' +
+        f.o.map(o => '<option value="' + o + '"' + (v === o ? ' selected' : '') + '>' +
+          o[0].toUpperCase() + o.slice(1) + '</option>').join('') +
+        '</select>';
+    } else if (f.t === 'plan') {
+      inp = '<select class="fs" id="mf-' + f.id + '">' +
+        '<option value="">— Select Plan —</option>' +
+        planOpts.map(o => '<option value="' + o + '"' + (v === o ? ' selected' : '') + '>' + o + '</option>').join('') +
+        (v && !planOpts.includes(v) ? '<option value="' + v + '" selected>' + v + '</option>' : '') +
+        '</select>';
+    } else {
+      inp = '<input class="fi" id="mf-' + f.id + '" type="' + f.t + '" placeholder="' + (f.p||'') + '" value="' + v + '"/>';
+    }
+    return '<div class="fg"><label class="fl">' + f.l + '</label>' + inp + '</div>';
+  }).join('');
+
+  g('m-body').innerHTML = '<div class="fgrid c2">' + html + '</div>';
+  g('mover').classList.add('open');
 }
 
-// ── TOAST ──
-function toast(msg,type='ok'){
-  const el=document.createElement('div');
-  el.className='toast'+(type==='err'?' err':type==='info'?' info':'');
-  el.innerHTML=`<span style="font-size:14px">${type==='ok'?'✓':type==='err'?'✕':'ℹ'}</span>${msg}`;
-  document.getElementById('toasts').appendChild(el);
-  setTimeout(()=>{el.style.opacity='0';el.style.transition='opacity .3s';setTimeout(()=>el.remove(),300);},4000);
+function closeMod() {
+  g('mover').classList.remove('open');
+  modType   = '';
+  modEditId = null;
 }
+
+// *** FIX: properly async ***
+async function saveMod() {
+  const form = FORMS[modType];
+  if (!form) { toast('No form active', 'err'); return; }
+  if (!db)   { toast('Not connected to database', 'err'); return; }
+
+  const data = {};
+  let valid = true;
+  form.fields.forEach(f => {
+    const el = g('mf-' + f.id);
+    if (el) data[f.id] = el.value.trim();
+  });
+
+  // Basic validation — name is always required
+  if (!data.name && form.col !== 'plans') {
+    toast('Name is required', 'err'); return;
+  }
+  if (form.col === 'plans' && !data.name) {
+    toast('Plan name is required', 'err'); return;
+  }
+
+  data.updatedAt = new Date().toISOString();
+  const col = form.col;
+
+  const saveBtn = g('m-save');
+  if (saveBtn) { saveBtn.textContent = 'Saving…'; saveBtn.disabled = true; }
+
+  try {
+    if (modEditId) {
+      await db.collection(col).doc(modEditId).update(data);
+      toast(form.title + ' updated!', 'ok');
+    } else {
+      data.createdAt = new Date().toISOString();
+      await db.collection(col).add(data);
+      toast(form.title + ' added!', 'ok');
+    }
+    closeMod();
+  } catch(ex) {
+    toast('Save failed: ' + ex.message, 'err');
+  } finally {
+    if (saveBtn) { saveBtn.textContent = 'Save'; saveBtn.disabled = false; }
+  }
+}
+
+async function delDoc(col, id) {
+  if (!confirm('Delete this record permanently?')) return;
+  if (!db) { toast('Not connected to database', 'err'); return; }
+  try {
+    await db.collection(col).doc(id).delete();
+    toast('Deleted.', 'info');
+  } catch(ex) {
+    toast('Delete failed: ' + ex.message, 'err');
+  }
+}
+
+// Close on overlay click
+g('mover').addEventListener('click', e => { if (e.target === g('mover')) closeMod(); });
+
+// ════════════════ TOAST ════════════════
+function toast(msg, type) {
+  type = type || 'ok';
+  const el = document.createElement('div');
+  el.className = 'toast' + (type === 'err' ? ' err' : type === 'info' ? ' info' : '');
+  el.innerHTML = '<span style="font-size:15px;line-height:1">' +
+    (type === 'ok' ? '✓' : type === 'err' ? '✕' : 'ℹ') + '</span>' + msg;
+  g('toasts').appendChild(el);
+  setTimeout(() => {
+    el.style.transition = 'opacity .3s';
+    el.style.opacity = '0';
+    setTimeout(() => el.remove(), 320);
+  }, 4000);
+}
+
+// ════════════════ UTILS ════════════════
+function show(id, visible) {
+  const el = g(id);
+  if (!el) return;
+  if (visible) el.classList.add('show');
+  else         el.classList.remove('show');
+}
+function showErr(id, msg) {
+  const el = g(id);
+  if (!el) return;
+  if (msg) { el.textContent = msg; el.style.display = 'block'; }
+  else     { el.style.display = 'none'; }
+}
+
+// ════════════════ BOOT ════════════════
+(function init() {
+  const raw = localStorage.getItem('efcgym_v2');
+  if (!raw) return; // show setup
+  let cfg;
+  try { cfg = JSON.parse(raw); } catch(x) { localStorage.removeItem('efcgym_v2'); return; }
+  if (!cfg.apiKey || !cfg.authDomain || !cfg.projectId || !cfg.appId) {
+    // prefill what we have
+    ['apiKey','authDomain','projectId','appId','ejsPub','ejsSvc','ejsTpl'].forEach(k => {
+      const el = g('c-' + k); if (el && cfg[k]) el.value = cfg[k];
+    });
+    return;
+  }
+  bootApp(cfg);
+})();
+
 </script>
 </body>
 </html>
